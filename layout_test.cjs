@@ -1,12 +1,12 @@
 const { chromium } = require('playwright');
 (async()=>{const b=await chromium.launch({args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--ignore-gpu-blocklist']});
-const errs=[]; const U='http://localhost:4178/'; let fail=0;
+const errs=[]; const U='http://localhost:4178/'; let fail=0; const ALL=[], CL=[];
 const check=async(p,name)=>{ await p.evaluate(()=>__snap(true)); await p.waitForTimeout(700); await p.evaluate(()=>__snap(false)); await p.waitForTimeout(1200);
   const r=await p.evaluate(()=>{ const els=[...document.querySelectorAll('.mk,.mk-badge')].filter(e=>getComputedStyle(e).display!=='none').map(e=>{const b=e.getBoundingClientRect();return {id:e.dataset.id||'badge',x:b.left,y:b.top,w:b.width,h:b.height}});
     let ov=[]; for(let i=0;i<els.length;i++)for(let j=i+1;j<els.length;j++){const a=els[i],c=els[j]; const ix=Math.min(a.x+a.w,c.x+c.w)-Math.max(a.x,c.x), iy=Math.min(a.y+a.h,c.y+c.h)-Math.max(a.y,c.y); if(ix>0&&iy>0) ov.push(a.id+'/'+c.id+' '+ix.toFixed(1)+'x'+iy.toFixed(1));}
-    const lines=[...document.querySelectorAll('#mk-lines line')].filter(l=>l.style.display!=='none').length;
-    return {cards:els.filter(e=>e.id!=='badge').length,badges:els.filter(e=>e.id==='badge').length,lines,ov}; });
-  if(r.ov.length) fail++; console.log(name, JSON.stringify({cards:r.cards,badges:r.badges,lines:r.lines,overlaps:r.ov.length, sample:r.ov.slice(0,3)}));
+    const L=[...document.querySelectorAll('#mk-lines line')].filter(l=>l.style.display!=='none'); const vis=[...document.querySelectorAll('.mk')].filter(e=>getComputedStyle(e).display!=='none').length; window.__cardsVis=vis; const lines=L.length; const MK=[...document.querySelectorAll('.mk')], LN=[...document.querySelectorAll('#mk-lines line')]; const cardLens=LN.map((l,i)=>[l,MK[i]]).filter(([l,e])=>l.style.display!=='none'&&e.style.display!=='none').map(([l])=>Math.hypot(l.x2.baseVal.value-l.x1.baseVal.value,l.y2.baseVal.value-l.y1.baseVal.value)); window.__clens=(window.__clens||[]).concat(cardLens); const lens=L.map(l=>Math.hypot(l.x2.baseVal.value-l.x1.baseVal.value,l.y2.baseVal.value-l.y1.baseVal.value)); window.__lens=(window.__lens||[]).concat(lens);
+    return {avg:lens.length?(lens.reduce((a,b)=>a+b,0)/lens.length).toFixed(1):0,max:lens.length?Math.max(...lens).toFixed(1):0,cards:els.filter(e=>e.id!=='badge').length,badges:els.filter(e=>e.id==='badge').length,lines,ov}; });
+  if(r.ov.length) fail++; ALL.push(...(await p.evaluate(()=>{const v=window.__lens||[]; window.__lens=[]; return v;}))); CL.push(...(await p.evaluate(()=>{const v=window.__clens||[]; window.__clens=[]; return v;}))); console.log(name, JSON.stringify({avg:r.avg,max:r.max,cards:r.cards,badges:r.badges,lines:r.lines,overlaps:r.ov.length, sample:r.ov.slice(0,3)}));
   await p.screenshot({path:`screens/layout_${name}.png`}); };
 async function page(vp){const p=await b.newPage({viewport:vp}); p.on('console',m=>m.type()==='error'&&errs.push(m.text())); p.on('pageerror',e=>errs.push('PAGEERR '+e.message));
  await p.goto(U+'#/'); await p.waitForFunction(()=>window.__state&&__state().texReady&&__state().globeFrames>20&&__thumbs()>=85,null,{timeout:120000}); await p.evaluate(()=>document.querySelector('#tl-all').click()); return p;}
@@ -25,4 +25,4 @@ await p.evaluate(()=>__zoomTo(38,112,4.5)); await p.waitForTimeout(600); const p
 console.log('preview', await p.evaluate(()=>document.querySelector('#preview').classList.contains('open'))); await check(p,'panel');
 console.log('layout ms', await p.evaluate(()=>{const t=performance.now(); for(let i=0;i<20;i++) window.__layoutOnce(); return ((performance.now()-t)/20).toFixed(2)})); await p.close(); let m=await page({width:390,height:844}); await check(m,'mobile_default');
 for (const [n,lat,lon,d] of [['mobile_china',36,112,8],['mobile_liaoning',41,120,5]]){ await m.evaluate(([a,o,dd])=>__zoomTo(a,o,dd),[lat,lon,d]); await check(m,n); }
-console.log('FAILED VIEWS',fail,'ERRORS',errs.length,errs.join('\n')); await b.close();})();
+console.log('LINES overall avg',(ALL.reduce((a,b)=>a+b,0)/ALL.length).toFixed(1),'max',Math.max(...ALL).toFixed(1),'n',ALL.length); console.log('CARD LINES avg',(CL.reduce((a,b)=>a+b,0)/CL.length).toFixed(1),'max',Math.max(...CL).toFixed(1),'n',CL.length); console.log('FAILED VIEWS',fail,'ERRORS',errs.length,errs.join('\n')); await b.close();})();

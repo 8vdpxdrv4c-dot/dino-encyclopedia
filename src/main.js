@@ -86,43 +86,61 @@ function initGlobe(){
     for (const m of sorted){ const f=m.userData.n.dot(cd); m.userData.f=f;
       if(!m.visible || f<0.15){ continue; }
       v3.copy(m.position).applyMatrix4(earth.matrixWorld).project(cam); items.push({m,x:(v3.x+1)/2*W,y:(1-v3.y)/2*H}); }
-    // initial clusters: anchors closer than one card
-    const par=items.map((_,i)=>i), find=i=>par[i]===i?i:(par[i]=find(par[i]));
-    for(let i=0;i<items.length;i++) for(let j=i+1;j<items.length;j++){ const a=items[i],b=items[j]; if(Math.abs(a.x-b.x)<s*0.9&&Math.abs(a.y-b.y)<s*0.9) par[find(i)]=find(j); }
-    const build=()=>{ const map={}; items.forEach((it,i)=>{ (map[find(i)]=map[find(i)]||{items:[],ids:[]}).items.push(it); });
-      return Object.entries(map).map(([root,cl])=>{ cl.root=+root; cl.items.sort((a,b)=>a.m.userData.ord-b.m.userData.ord);
-        const n=cl.items.length; cl.cx=cl.items.reduce((t,i)=>t+i.x,0)/n; cl.cy=cl.items.reduce((t,i)=>t+i.y,0)/n; cl.badge=n>MAXN;
-        const cols=cl.badge?1:Math.min(n,Math.ceil(Math.sqrt(n*1.6))), rows=cl.badge?1:Math.ceil(n/cols);
-        cl.w=cols*cell-g; cl.h=rows*cell-g; cl.cols=cols; return cl; }); };
-    let cls=build();
     // obstacles: overlay UI panels
     if(!globe.obs||globe.frames%20===0){ const wr=el.getBoundingClientRect(); globe.obs=['.topbar','.hero-mini','#drawer:not(.closed)','.timeline-card','#preview.open','#drawer-btn.show'].map(q=>document.querySelector(q)).filter(Boolean).map(e=>{const r=e.getBoundingClientRect(); return {x0:r.left-wr.left,y0:r.top-wr.top,w:r.width,h:r.height};}).filter(r=>r.w>0); }
     const placed=[...globe.obs];
-    const hit=(x,y,w,h)=>placed.some(o=>x<o.x0+o.w+pad && o.x0<x+w+pad && y<o.y0+o.h+pad && o.y0<y+h+pad) || x<2||y<2||x+w>W-2||y+h>H-2;
-    cls.sort((p,q)=>q.items.length-p.items.length || p.items[0].m.userData.ord-q.items[0].m.userData.ord);
-    for(const cl of cls){ const px=cl.cx-cl.w/2, py=cl.cy-(cl.items.length===1?s*0.5+14:cl.h+16); let ok=false;
-      outer: for(let rr=0; rr<=Math.max(W,H); rr+=cell*0.5){ const steps=rr===0?1:Math.max(8,Math.round(rr/12));
-        for(let k=0;k<steps;k++){ const an=-Math.PI/2+(k%2?1:-1)*Math.ceil(k/2)*(2*Math.PI/steps); const x=px+Math.cos(an)*rr, y=py+Math.sin(an)*rr*0.8;
-          if(!hit(x,y,cl.w,cl.h)){ cl.x0=x; cl.y0=y; ok=true; break outer; } } }
-      if(!ok){ cl.hidden=true; continue; } placed.push(cl); }
-    cls=cls.filter(c=>!c.hidden);
+    const hit=(x,y,w,h)=>x<2||y<2||x+w>W-2||y+h>H-2||placed.some(o=>x<o.x0+o.w+pad && o.x0<x+w+pad && y<o.y0+o.h+pad && o.y0<y+h+pad);
+    const under=it=>it.x<4||it.y<4||it.x>W-4||it.y>H-4||globe.obs.some(o=>it.x>o.x0&&it.x<o.x0+o.w&&it.y>o.y0&&it.y<o.y0+o.h); for(let i=items.length-1;i>=0;i--) if(under(items[i])) items.splice(i,1);
+    const gap=8, LMAX=Math.round(Math.max(40,Math.min(60,s*0.9)));
+    // 1) very dense clusters (anchors nearly coincident, more than MAXN) -> count badge
+    const par=items.map((_,i)=>i), find=i=>par[i]===i?i:(par[i]=find(par[i]));
+    for(let i=0;i<items.length;i++) for(let j=i+1;j<items.length;j++){ const a=items[i],b=items[j]; if(Math.abs(a.x-b.x)<s*0.9&&Math.abs(a.y-b.y)<s*0.9) par[find(i)]=find(j); }
+    const groups={}; items.forEach((it,i)=>(groups[find(i)]=groups[find(i)]||[]).push(it));
+    const badgeCls=[], cardItems=[];
+    for(const gm of Object.values(groups)){ if(gm.length>MAXN) badgeCls.push({items:gm}); else cardItems.push(...gm); }
+    const placeBadge=(cl,cap=Math.max(W,H))=>{ const n=cl.items.length; cl.cx=cl.items.reduce((t,i)=>t+i.x,0)/n; cl.cy=cl.items.reduce((t,i)=>t+i.y,0)/n; cl.w=cl.h=s;
+      for(let rr=0; rr<=cap; rr+=4){ const steps=rr===0?1:Math.max(8,Math.round(rr/8));
+        for(let k=0;k<steps;k++){ const an=-Math.PI/2+(k%2?1:-1)*Math.ceil(k/2)*(2*Math.PI/steps); const x=cl.cx-s/2+Math.cos(an)*rr, y=cl.cy-s/2+Math.sin(an)*rr;
+          if(!hit(x,y,s,s)){ cl.x0=x; cl.y0=y; placed.push(cl); return true; } } } return false; };
+    // 2) cards: each as close as possible to its own dot, rings spiralling out, capped leader length; shrink before giving up
+    const DIRS=24, dirs=[]; for(let k=0;k<DIRS;k++){ const an=-Math.PI/2+(k%2?1:-1)*Math.ceil(k/2)*(2*Math.PI/DIRS); dirs.push([Math.cos(an),Math.sin(an)]); }
+    const tryPlace=(it,z,cap=LMAX)=>{ for(let r=0;r<=cap-gap;r+=4){ for(const [dx,dy] of dirs){
+        // place card so its nearest edge is (gap+r) away from the anchor along direction
+        const ex=Math.abs(dx)<1e-6?0:dx, ey=dy; const t=(gap+r)+z/2/Math.max(Math.abs(ex),Math.abs(ey),1e-6)*Math.min(1,Math.max(Math.abs(ex),Math.abs(ey)));
+        const cx=it.x+ex*(z/2/Math.max(Math.abs(ex),Math.abs(ey))+gap+r), cy=it.y+ey*(z/2/Math.max(Math.abs(ex),Math.abs(ey))+gap+r);
+        const x=cx-z/2, y=cy-z/2; if(!hit(x,y,z,z)) return [x,y]; } } return null; };
+    const overflow=[]; const cardPos=new Map();
+    for(const cl of badgeCls) placeBadge(cl,LMAX)||placeBadge(cl);
+    const order=[...cardItems].sort((a,b)=>a.m.userData.ord-b.m.userData.ord);
+    for(const it of order){ let p=null,z=s; for(const f of [1,0.84,0.7,0.58]){ z=Math.round(s*f); p=tryPlace(it,z); if(p) break; }
+      if(!p){ z=Math.round(s*0.58); p=tryPlace(it,z,LMAX); }
+      if(p){ cardPos.set(it.m,[p[0],p[1],z]); placed.push({x0:p[0],y0:p[1],w:z,h:z}); } else overflow.push(it); }
+    // 3) leftovers merge into a nearby count badge instead of being pushed far away
+    if(overflow.length){ const op=overflow.map((_,i)=>i), f2=i=>op[i]===i?i:(op[i]=f2(op[i]));
+      for(let i=0;i<overflow.length;i++) for(let j=i+1;j<overflow.length;j++){ const a=overflow[i],b=overflow[j]; if(Math.hypot(a.x-b.x,a.y-b.y)<s*2.5) op[f2(i)]=f2(j); }
+      const og={}; overflow.forEach((it,i)=>(og[f2(i)]=og[f2(i)]||[]).push(it));
+      for(const gm of Object.values(og)){ const cx=gm.reduce((t,i)=>t+i.x,0)/gm.length, cy=gm.reduce((t,i)=>t+i.y,0)/gm.length;
+        const join=badgeCls.find(b=>b.x0!==undefined && Math.hypot(b.x0+b.w/2-cx,b.y0+b.h/2-cy)<LMAX+s*0.8);
+        if(join){ join.items.push(...gm); continue; }
+        const cl={items:gm}; if(placeBadge(cl,LMAX)) { badgeCls.push(cl); continue; }
+        const nb=badgeCls.filter(b=>b.x0!==undefined).sort((a,b)=>Math.hypot(a.x0-cx,a.y0-cy)-Math.hypot(b.x0-cx,b.y0-cy))[0];
+        if(nb && Math.hypot(nb.x0-cx,nb.y0-cy)<s*4){ nb.items.push(...gm); continue; }
+        if(placeBadge(cl)) badgeCls.push(cl); } }
     const shown=new Set(), rects=[]; let bi=0;
-    for(const cl of cls){
-      if(cl.badge){ const b=getBadge(bi++); b._cl=cl; b.style.display='flex'; b.style.width=b.style.height=cl.w+'px'; b.style.transform=`translate(${cl.x0}px,${cl.y0}px)`;
-        b.innerHTML=`<b>${cl.items.length}</b><small>处化石</small>`; rects.push({id:'badge'+bi,x:cl.x0,y:cl.y0,w:cl.w,h:cl.h});
-        for(const it of cl.items){ it.m.userData.target=null; it.m.userData.badgeAt=[cl.x0+cl.w/2,cl.y0+cl.h,it.x,it.y]; shown.add(it.m); }
-        continue; }
-      cl.items.forEach((it,k)=>{ const tx=cl.x0+(k%cl.cols)*cell, ty=cl.y0+Math.floor(k/cl.cols)*cell; it.m.userData.target=[tx,ty]; it.m.userData.badgeAt=null; it.m.userData.anchor=[it.x,it.y]; shown.add(it.m); rects.push({id:it.m.userData.d.id,x:tx,y:ty,w:s,h:s}); });
-    }
+    for(const cl of badgeCls){ if(cl.x0===undefined) continue; const b=getBadge(bi++); b._cl=cl; b.style.display='flex'; b.style.width=b.style.height=cl.w+'px'; b.style.transform=`translate(${cl.x0}px,${cl.y0}px)`;
+      b.innerHTML=`<b>${cl.items.length}</b><small>处化石</small>`; rects.push({id:'badge'+bi,x:cl.x0,y:cl.y0,w:cl.w,h:cl.h});
+      const near=cl.items.reduce((p,q)=>Math.hypot(q.x-cl.cx,q.y-cl.cy)<Math.hypot(p.x-cl.cx,p.y-cl.cy)?q:p);
+      for(const it of cl.items){ it.m.userData.target=null; it.m.userData.badgeAt=it===near?[cl.x0,cl.y0,cl.w,it.x,it.y]:null; shown.add(it.m); } }
     for(let i=bi;i<badges.length;i++){ badges[i].style.display='none'; badges[i]._cl=null; }
+    for(const [m,[x,y,z]] of cardPos){ const it=items.find(i=>i.m===m); m.userData.target=[x,y]; m.userData.sz=z; m.userData.badgeAt=null; m.userData.anchor=[it.x,it.y]; shown.add(m); rects.push({id:m.userData.d.id,x,y,w:z,h:z}); }
+    const seg=(ln,ax,ay,x,y,w,h)=>{ const nx=Math.min(Math.max(ax,x),x+w), ny=Math.min(Math.max(ay,y),y+h); if(Math.hypot(nx-ax,ny-ay)<1){ ln.style.display='none'; return; } ln.setAttribute('x1',ax);ln.setAttribute('y1',ay);ln.setAttribute('x2',nx);ln.setAttribute('y2',ny); ln.style.display=''; };
     for(const m of sorted){ const u=m.userData, e=u.el, ln=u.ln;
       if(!shown.has(m)||!u.target){ e.style.display='none'; u.cur=null; u.off=null;
-        if(shown.has(m)&&u.badgeAt){ const [x1,y1,x2,y2]=u.badgeAt; ln.setAttribute('x1',x1);ln.setAttribute('y1',y1);ln.setAttribute('x2',x2);ln.setAttribute('y2',y2); ln.style.display=''; } else ln.style.display='none'; continue; }
-      const [tx,ty]=u.target, [ax0,ay0]=u.anchor, ox=tx-ax0, oy=ty-ay0; if(!u.off||globe.snap||!u.cur) u.off=[ox,oy]; else { const kf=1-Math.exp(-(globe.dt||0.016)*12); u.off[0]+=(ox-u.off[0])*kf; u.off[1]+=(oy-u.off[1])*kf; if(Math.abs(ox-u.off[0])<0.3&&Math.abs(oy-u.off[1])<0.3) u.off=[ox,oy]; } u.cur=[ax0+u.off[0],ay0+u.off[1]];
-      e.style.display='block'; e.style.width=e.style.height=s+'px'; e.style.transform=`translate(${u.cur[0].toFixed(1)}px,${u.cur[1].toFixed(1)}px)`;
+        if(shown.has(m)&&u.badgeAt){ const [bx,by,bw,ax,ay]=u.badgeAt; seg(ln,ax,ay,bx,by,bw,bw); } else ln.style.display='none'; continue; }
+      const z=u.sz||s, [tx,ty]=u.target, [ax0,ay0]=u.anchor, ox=tx-ax0, oy=ty-ay0; if(!u.off||globe.snap||!u.cur) u.off=[ox,oy]; else { const kf=1-Math.exp(-(globe.dt||0.016)*12); u.off[0]+=(ox-u.off[0])*kf; u.off[1]+=(oy-u.off[1])*kf; if(Math.abs(ox-u.off[0])<0.3&&Math.abs(oy-u.off[1])<0.3) u.off=[ox,oy]; } u.cur=[ax0+u.off[0],ay0+u.off[1]];
+      e.style.display='block'; e.style.width=e.style.height=z+'px'; e.style.transform=`translate(${u.cur[0].toFixed(1)}px,${u.cur[1].toFixed(1)}px)`;
       e.style.opacity=Math.min(1,(u.f-0.15)/0.12).toFixed(2); e.classList.toggle('sel',u.d.id===globe.sel);
-      const [ax,ay]=u.anchor, cx=u.cur[0]+s/2, cy=Math.min(Math.max(ay,u.cur[1]),u.cur[1]+s);
-      ln.setAttribute('x1',ax);ln.setAttribute('y1',ay);ln.setAttribute('x2',cx);ln.setAttribute('y2',cy); ln.style.display=''; }
+      seg(ln,ax0,ay0,u.cur[0],u.cur[1],z,z); }
     globe.rects=rects; globe.cardSize=s;
   }
   globe.layout=layout;
@@ -282,7 +300,7 @@ $('#stats').innerHTML = `<div><b>${DINOS.length}</b>收录物种</div><div><b>${
 initGlobe(); initDrawer(); initTimeline(); initBrowse(); initGroups(); initCredits();
 addEventListener('hashchange', route); route();
 window.__state = () => ({globeFrames:globe.frames||0, texReady:!!globe.texReady, viewer: viewer?{frames:viewer.frames||0, loaded:!!viewer.loaded}:null});
-window.__markerScreen = id => { const m=globe.markers.find(m=>m.userData.d.id===id); const r=(globe.rects||[]).find(r=>r.id===id); if(!m||!r) return {vis:false}; const s=globe.cardSize; return {x:r.x+s/2,y:r.y+s/2,vis:true}; };
+window.__markerScreen = id => { const m=globe.markers.find(m=>m.userData.d.id===id); const r=(globe.rects||[]).find(r=>r.id===id); if(!m||!r) return {vis:false}; return {x:r.x+r.w/2,y:r.y+r.h/2,vis:true}; };
 window.__layoutRects = () => globe.rects||[];
 window.__thumbs = () => globe.thumbsLoaded||0;
 window.__zoomTo = (lat,lon,dist) => { globe.ctl.autoRotate=false; globe.focus=null; globe.zoomTo=null; globe.cam.position.copy(ll(lat,lon,dist)); globe.ctl.update(); };
