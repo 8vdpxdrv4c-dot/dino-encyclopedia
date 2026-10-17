@@ -171,9 +171,9 @@ function updateGlobe(periodKey){
 /* ---------- timeline ---------- */
 const TMAX=237, TMIN=66;
 function initTimeline(){
-  const track=$('#tl-track'); track.innerHTML = PERIODS.map(p=>`<div class="tl-seg" data-k="${p.key}" style="flex:${p.start-p.end};background:${p.color}">${p.zh} ${p.start}–${p.end}</div>`).join('');
+  const track=$('#tl-track'); track.innerHTML = PERIODS.map(p=>`<div class="tl-seg" data-k="${p.key}" style="flex:${p.start-p.end};background:${p.color}" title="${p.zh} ${p.start}–${p.end} Ma"><b class="tl-n">${p.zh}</b><span class="tl-y">${p.start}–${p.end}</span></div>`).join('');
   const range=$('#tl-range'); range.max = TMAX-TMIN;
-  track.onclick = e => { const k=e.target.dataset.k; if(!k) return; $('#tl-all').checked=false; range.value = TMAX-(P[k].start+P[k].end)/2; apply(); };
+  track.onclick = e => { const k=e.target.closest('.tl-seg')?.dataset.k; if(!k) return; $('#tl-all').checked=false; range.value = TMAX-(P[k].start+P[k].end)/2; apply(); };
   range.oninput = () => { $('#tl-all').checked=false; apply(); }; $('#tl-all').onchange = apply;
   function apply(){ const ma = TMAX - (+range.value); const all=$('#tl-all').checked;
     const per = PERIODS.find(p => ma<=p.start && ma>=p.end) || PERIODS[5]; const key = all?'ALL':per.key;
