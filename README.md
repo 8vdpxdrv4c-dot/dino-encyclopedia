@@ -15,8 +15,8 @@
 - **滑入式预览面板**：点击标记即可在不离开地球的情况下查看要点，并可进入完整档案页。
 - **分类浏览**：兽脚类、蜥脚形类、角龙类、剑龙类、甲龙类、鸟脚类、肿头龙类等。
 - **详情页**：中文名与拉丁名、年代、体长、体重、食性、发现地与命名年份、简介、趣闻；6 种恐龙提供可旋转的 3D 模型（GLB）。
-- **AI 复原图**：85 种恐龙均配有本站 AI 生成的写实复原图（800×600 WebP），用作详情页与预览面板的主图及地球标记缩略图；维基共享资源的化石 / 标本照片作为辅图保留并署名。
-- **85 种恐龙**，其中 28 种为中国发现（禄丰龙、马门溪龙、永川龙、中华龙鸟、小盗龙、羽暴龙、近鸟龙等）。
+- **AI 复原图**：全部 136 个物种均配有本站 AI 生成的写实复原图（800×600 WebP），用作详情页与预览面板的主图及地球标记缩略图；维基共享资源的化石 / 标本照片作为辅图保留并署名。
+- **136 个物种**：120 种恐龙 + 16 种翼龙（翼龙非恐龙，是恐龙的近亲，单独归入“翼龙类”），其中 41 种为中国发现（禄丰龙、马门溪龙、小盗龙、寐龙、耀龙、奇翼龙、巨盗龙、准噶尔翼龙、哈密翼龙、悟空翼龙等）。
 - 响应式设计，移动端抽屉与面板自动变为底部弹出层；构建后完全离线可用。
 
 ![预览面板](docs/screens/v7_panel.jpg)
@@ -43,7 +43,7 @@ npm run preview   # 在 http://localhost:4178 预览构建结果
 ```
 index.html            页面骨架
 src/main.js           地球、标签布局、时间轴、路由、详情与 3D 模型查看器
-src/data.js           恐龙数据（85 种）
+src/data.js           物种数据（136 种，含 16 种翼龙）
 src/images.json       图片来源、作者与许可信息
 src/credits.js        模型、纹理、字体来源
 src/style.css         暗黑森系样式
@@ -63,7 +63,7 @@ fetchimg.mjs          从维基共享资源下载图片并记录许可的脚本
 | 素材 | 来源 | 许可 |
 |---|---|---|
 | 3D 模型（霸王龙、伶盗龙、三角龙、副栉龙、剑龙、迷惑龙） | Quaternius，经 [Poly Pizza](https://poly.pizza) | CC0 1.0 |
-| AI 复原图（85 张，`public/ai/`、`public/thumb/`） | 本站使用 AI 图像生成工具制作（提示词见 `gen/prompts.json`，裁切/补边脚本 `gen/process.py`），仅供参考，可能与科学事实不符 | 随本项目发布 |
+| AI 复原图（136 张，`public/ai/`、`public/thumb/`） | 本站使用 AI 图像生成工具制作（提示词见 `gen/prompts.json`，裁切/补边脚本 `gen/process.py`），仅供参考，可能与科学事实不符 | 随本项目发布 |
 | 恐龙化石 / 标本照片（83 张） | [Wikimedia Commons](https://commons.wikimedia.org)，逐张作者与许可见站内「版权与来源」页及 `src/images.json` | CC BY / CC BY-SA / CC0 / 公有领域（各图不同） |
 | 地球纹理 | [NASA Visible Earth – Blue Marble](https://visibleearth.nasa.gov/images/57752) | NASA 公有领域 |
 | 字体 Noto Serif SC（按用字子集化） | [notofonts/noto-cjk](https://github.com/notofonts/noto-cjk) | SIL OFL 1.1 |

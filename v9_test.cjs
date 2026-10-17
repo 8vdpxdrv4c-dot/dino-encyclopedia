@@ -3,8 +3,8 @@ const { chromium } = require('playwright');
 const U=process.argv[2]||'http://localhost:4178/', pre=process.argv[3]||'v9'; let fail=0; const errs=[];
 for(const vp of [{width:1440,height:900},{width:1280,height:720}]){
 const p=await b.newPage({viewport:vp}); p.on('pageerror',e=>errs.push(e.message));p.on('console',m=>m.type()==='error'&&errs.push(m.text()));
-await p.goto(U); await p.waitForFunction(()=>window.__state&&__state().texReady&&__state().globeFrames>20&&__thumbs()>=85,null,{timeout:120000});
-await p.evaluate(()=>document.querySelector('#tl-all').click());
+await p.goto(U); await p.waitForFunction(()=>window.__state&&__state().texReady&&__state().globeFrames>20&&__thumbs()>=document.querySelectorAll('.mk img').length,null,{timeout:120000});
+await p.evaluate(()=>(e=>{if(!e.checked)e.click()})(document.querySelector('#tl-all')));
 const main=vp.width===1440;
 if(main){ await p.waitForTimeout(2200); await p.screenshot({path:`screens/${pre}_home.png`}); }
 await p.evaluate(()=>__zoomTo(36,112,5.2)); await p.waitForTimeout(2500);

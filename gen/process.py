@@ -1,6 +1,7 @@
-import json,os,numpy as np
+import json,os,sys,numpy as np
+ONLY=set(sys.argv[1:])  # optional: process only these ids
 from PIL import Image,ImageOps,ImageFilter,ImageEnhance,ImageDraw,ImageFont
-P=json.load(open('gen/prompts.json')); os.makedirs('public/ai',exist_ok=True)
+P=[p for p in json.load(open('gen/prompts.json')) if os.path.exists(f"gen/raw/{p['id']}.jpg") or os.path.exists(f"gen/raw/{p['id']}.png")]; os.makedirs('public/ai',exist_ok=True)
 OV=json.load(open('gen/overrides.json')) if os.path.exists('gen/overrides.json') else {}
 report={}
 def bbox(im):
@@ -13,8 +14,9 @@ def bbox(im):
         c=np.cumsum(v); t=c[-1]; lo=np.searchsorted(c,t*frac); hi=np.searchsorted(c,t*(1-frac)); return lo,hi
     x0,x1=ext(cols); y0,y1=ext(rows)
     s=1024/512; bbox.m=m; return x0*s,x1*s,y0*s,y1*s
+ALLP=P; P=[p for p in P if not ONLY or p['id'] in ONLY]
 for p in P:
-    i=p['id']; im=Image.open(f'gen/raw/{i}.jpg').convert('RGB'); W,H=im.size
+    i=p['id']; im=Image.open(f'gen/raw/{i}.jpg' if os.path.exists(f'gen/raw/{i}.jpg') else f'gen/raw/{i}.png').convert('RGB'); W,H=im.size
     x0,x1,y0,y1=bbox(im); x0-=40; x1+=40
     if i in OV: x0,x1=OV[i].get('x0',x0),OV[i].get('x1',x1); mode=OV[i].get('mode')
     else: mode=None
@@ -34,11 +36,12 @@ for p in P:
     l=min(max(0,sx-side/2),800-side); t=min(max(0,sy-side/2),600-side)
     out.crop((int(l),int(t),int(l+side),int(t+side))).resize((128,128),Image.LANCZOS).save(f'public/thumb/{i}.webp','WEBP',quality=74)
     report[i]={'mode':kind,'w':int(w),'x0':int(x0),'x1':int(x1)}
-json.dump([p['id'] for p in P],open('src/ai.json','w'))
+json.dump([p['id'] for p in json.load(open('gen/prompts.json')) if os.path.exists(f"public/ai/{p['id']}.webp")],open('src/ai.json','w'))
+if ONLY and os.path.exists('gen/report.json'): report={**json.load(open('gen/report.json')),**report}
 json.dump(report,open('gen/report.json','w'),indent=0)
 print({k:sum(1 for v in report.values() if v['mode']==k) for k in ['crop','pad']}); print('pad:',[k for k,v in report.items() if v['mode']=='pad'])
 # contact sheet
 tw,th=200,150; cols=10; rows=(len(P)+cols-1)//cols; S=Image.new('RGB',(cols*tw,rows*(th+18)),'#050a07'); D=ImageDraw.Draw(S)
 for n,p in enumerate(P):
     t=Image.open(f"public/ai/{p['id']}.webp").resize((tw,th)); x=(n%cols)*tw; y=(n//cols)*(th+18); S.paste(t,(x,y)); D.text((x+3,y+th+3),p['id'],fill='#f2b448')
-S.save('screens/v7_contact.png'); print('sheet',S.size)
+S.save('screens/ai_contact.png'); print('sheet',S.size)

@@ -9,7 +9,7 @@ const check=async(p,name)=>{ await p.evaluate(()=>__snap(true)); await p.waitFor
   if(r.ov.length) fail++; ALL.push(...(await p.evaluate(()=>{const v=window.__lens||[]; window.__lens=[]; return v;}))); CL.push(...(await p.evaluate(()=>{const v=window.__clens||[]; window.__clens=[]; return v;}))); console.log(name, JSON.stringify({avg:r.avg,max:r.max,cards:r.cards,badges:r.badges,lines:r.lines,overlaps:r.ov.length, sample:r.ov.slice(0,3)}));
   await p.screenshot({path:`screens/layout_${name}.png`}); };
 async function page(vp){const p=await b.newPage({viewport:vp}); p.on('console',m=>m.type()==='error'&&errs.push(m.text())); p.on('pageerror',e=>errs.push('PAGEERR '+e.message));
- await p.goto(U+'#/'); await p.waitForFunction(()=>window.__state&&__state().texReady&&__state().globeFrames>20&&__thumbs()>=85,null,{timeout:120000}); await p.evaluate(()=>document.querySelector('#tl-all').click()); return p;}
+ await p.goto(U+'#/'); await p.waitForFunction(()=>window.__state&&__state().texReady&&__state().globeFrames>20&&__thumbs()>=document.querySelectorAll('.mk img').length,null,{timeout:120000}); await p.evaluate(()=>(e=>{if(!e.checked)e.click()})(document.querySelector('#tl-all'))); return p;}
 let p=await page({width:1440,height:900});
 await check(p,'desktop_default');
 for (const [n,lat,lon,d] of [['china_far',35,110,7.5],['china_mid',36,112,5.2],['china_near',40,118,3.6],['liaoning_close',41.6,120.6,3.2],['europe',48,8,4.5],['northamerica',45,-108,4.2],['oblique',10,60,6]]){ await p.evaluate(([a,o,dd])=>__zoomTo(a,o,dd),[lat,lon,d]); await check(p,n); }

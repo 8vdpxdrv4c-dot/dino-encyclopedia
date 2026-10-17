@@ -1,7 +1,7 @@
 import {DINOS} from './src/data.js'; import fs from 'fs';
 const UA={'User-Agent':'DinoEncyclopediaBuilder/1.0 (offline educational project)'};
 const out=fs.existsSync('src/images.json')?JSON.parse(fs.readFileSync('src/images.json')):{};
-for(const d of DINOS){ if(out[d.id]) continue;
+for(const d of DINOS){ if(out[d.id]||(process.argv[2]&&!process.argv.slice(2).includes(d.id))) continue;
  for(let a=0;a<3;a++){ try{
     const r=await (await fetch(`https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&piprop=name&redirects=1&titles=${encodeURIComponent(d.wiki)}`,{headers:UA})).json();
     const p=Object.values(r.query.pages)[0]; const name=p.pageimage; if(!name){console.log('noimg',d.id);break;}

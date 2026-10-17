@@ -15,6 +15,11 @@ const byId = Object.fromEntries(DINOS.map(d => [d.id, d]));
 const imgUrl = d => IMAGES[d.id] ? BASE + IMAGES[d.id].file : null;
 const aiUrl = d => AI.has(d.id) ? BASE+'ai/'+d.id+'.webp' : imgUrl(d);
 const thumbUrl = d => BASE+'thumb/'+d.id+'.webp';
+const ALIAS = { microraptor:'顾氏小盗龙 赵氏小盗龙 四翼恐龙 micro raptor', kentrosaurus:'钉状龙 肯氏龙 钉龙 kentrosaur', archaeopteryx:'始祖鸟 十足鸟 印石板始祖鸟 原始鸟 archaeopterix urvogel', tyrannosaurus:'霸王龙 暴龙 t-rex trex', velociraptor:'迅猛龙 伶盗龙', triceratops:'三角龙', brontosaurus:'雷龙 迷惑龙', apatosaurus:'迷惑龙 雷龙', darwinopterus:'悟空翼龙 达尔文翼龙', quetzalcoatlus:'披羽蛇翼龙 风神翼龙', pteranodon:'无齿翼龙 翼龙', pterodactylus:'翼手龙 翼龙', yi:'奇翼龙 yiqi', mei:'寐龙 meilong', spinosaurus:'棘龙', stegosaurus:'剑龙', ankylosaurus:'甲龙', brachiosaurus:'腕龙' };
+const norm = t => (t||'').toLowerCase().replace(/[\s·\-_.]/g,'');
+const HAY = Object.fromEntries(DINOS.map(d=>[d.id, norm([d.zh,d.latin,d.id,d.wiki,d.place,ALIAS[d.id]||'',GROUPS[d.group].zh,GROUPS[d.group].en].join('|'))]));
+const matchQ = (d,q) => !q || HAY[d.id].includes(norm(q));
+const ptTag = d => d.group==='pterosauria' ? '<span class="ptero-tag">翼龙（非恐龙，恐龙的近亲）</span>' : '';
 
 /* ---------- fireflies ---------- */
 (function fireflies(){
@@ -77,7 +82,7 @@ function initGlobe(){
     layer.appendChild(c); m.userData.el=c; m.userData.cur=null;
     const ln=document.createElementNS('http://www.w3.org/2000/svg','line'); ln.setAttribute('stroke',P[d.period].color); svg.appendChild(ln); m.userData.ln=ln;
   });
-  const badges=[]; const getBadge=i=>{ if(!badges[i]){ const b=document.createElement('div'); b.className='mk-badge'; layer.appendChild(b); b.onclick=()=>{ const cl=b._cl; if(!cl) return; const v=new THREE.Vector3(); cl.items.forEach(it=>v.add(it.m.userData.n)); globe.focus=v.normalize(); globe.zoomTo=Math.max(globe.ctl.minDistance, globe.cam.position.length()*0.62); globe.ctl.autoRotate=false; }; badges[i]=b; } return badges[i]; };
+  const badges=[]; const getBadge=i=>{ if(!badges[i]){ const b=document.createElement('div'); b.className='mk-badge'; layer.appendChild(b); b.onclick=e=>{ e.stopPropagation(); const cl=b._cl; if(!cl) return; openBadgePop(b,cl.items.map(it=>it.m.userData.d)); const v=new THREE.Vector3(); cl.items.forEach(it=>v.add(it.m.userData.n)); globe.focus=v.normalize(); globe.zoomTo=Math.max(globe.ctl.minDistance, globe.cam.position.length()*0.55); globe.ctl.autoRotate=false; }; badges[i]=b; } return badges[i]; };
   Object.assign(globe,{r,scene,cam,ctl,earth,markers,mat,atm});
   const v3=new THREE.Vector3();
   function layout(){
@@ -184,7 +189,7 @@ function initTimeline(){
 let curPeriod = 'ALL';
 function currentList(){
   const q=($('#dq')?.value||'').trim().toLowerCase(), g=$('#d-group')?.value, di=$('#d-diet')?.value, re=$('#d-region')?.value;
-  return DINOS.filter(d => (curPeriod==='ALL'||d.period===curPeriod) && (!q||(d.zh+d.latin+d.place).toLowerCase().includes(q)) && (!g||d.group===g) && (!di||d.diet===di) && (!re||d.region===re));
+  return DINOS.filter(d => (curPeriod==='ALL'||q||d.period===curPeriod) && (!q||matchQ(d,q)) && (!g||d.group===g) && (!di||d.diet===di) && (!re||d.region===re));
 }
 function renderDrawer(list){
   $('#d-count').textContent = `${curPeriod==='ALL'?'全部时代':P[curPeriod].zh} · ${list.length} 种`;
@@ -194,21 +199,25 @@ function initDrawer(){
   opts('#d-group','类群',Object.entries(GROUPS).map(([k,g])=>[k,g.zh])); opts('#d-diet','食性',DIETS.map(x=>[x,x])); opts('#d-region','地区',REGIONS.map(x=>[x,x]));
   const upd=()=>{ const l=currentList(); renderDrawer(l); updateGlobe(curPeriod); $('#globe-note').innerHTML=`当前显示 <b style="color:var(--amber)">${l.length}</b> 个化石产地 · 大陆为现代位置示意（非古地理复原）`; };
   ['#dq','#d-group','#d-diet','#d-region'].forEach(x=>$(x).addEventListener('input',upd));
+  $('#dq').addEventListener('keydown',e=>{ if(e.key!=='Enter') return; const q=$('#dq').value.trim(); if(!q) return; const l=DINOS.filter(d=>matchQ(d,q)); const best=l.find(d=>norm(d.zh)===norm(q)||norm(d.latin)===norm(q))||l[0]; if(best) flyTo(best.id); });
   $('#tl-list').onclick = e => { const it=e.target.closest('.dr-item'); if(it){ openPreview(it.dataset.id); if(innerWidth<900) setDrawer(false); } };
   const setDrawer = o => { globe.obs=null; $('#drawer').classList.toggle('closed',!o); $('#drawer-btn').classList.toggle('show',!o); };
   $('#drawer-x').onclick=()=>setDrawer(false); $('#drawer-btn').onclick=()=>{ setDrawer(true); closePreview(); };
   if (innerWidth<900) setDrawer(false);
 }
+function flyTo(id){ openPreview(id); globe.zoomTo=Math.min(globe.cam.position.length(),4.4); }
+window.flyTo=flyTo;
 function openPreview(id){
-  const d=byId[id]; if(!d) return; const per=P[d.period], im=aiUrl(d), info=IMAGES[d.id];
+  const d=byId[id]; if(!d) return; closeBadgePop();
+  { const m0=globe.markers?.find(m=>m.userData.d.id===id); if(m0&&!m0.visible){ const a=$('#tl-all'); if(a&&!a.checked){ a.checked=true; a.dispatchEvent(new Event('change')); } if(!m0.visible){ ['#d-group','#d-diet','#d-region'].forEach(x=>{ if($(x)) $(x).value=''; }); updateGlobe(curPeriod); } } } const per=P[d.period], im=aiUrl(d), info=IMAGES[d.id];
   const fact=(k,v,st='')=>`<div title="${v}"><span>${k}</span><b${st}>${v}</b></div>`;
   $('#preview').innerHTML = `<button class="x" id="pv-x" aria-label="关闭">×</button>
-   <div class="pimg" style="background-image:url('${im}')"><span class="ai-tag">AI 复原图</span>${info?`<img class="pimg-photo" src="${imgUrl(d)}" alt="化石/标本照片" title="化石/标本照片：${info.artist||''} · ${info.license}">`:''}</div>
-   <div class="pb"><div class="eyebrow">${GROUPS[d.group].clade} · ${GROUPS[d.group].zh}</div><div class="pt"><h2>${d.zh}</h2><span class="latin">${d.latin}</span></div>
+   <div class="pimg" style="${im?`background-image:url('${im}')`:''}">${!im?`<div class="pimg-ph">${d.zh}<br><small>复原图制作中</small></div>`:''}<span class="ai-tag">${AI.has(d.id)?'AI 复原图':(im?'化石/标本照片':'暂无图片')}</span>${info&&AI.has(d.id)?`<img class="pimg-photo" src="${imgUrl(d)}" alt="化石/标本照片" title="化石/标本照片：${info.artist||''} · ${info.license}">`:''}</div>
+   <div class="pb">${ptTag(d)}<div class="eyebrow">${GROUPS[d.group].clade} · ${GROUPS[d.group].zh}</div><div class="pt"><h2>${d.zh}</h2><span class="latin">${d.latin}</span></div>
    <div class="facts pf">${fact('年代',per.zh,` style="color:${per.color}"`)}${fact('食性',d.diet)}${fact('命名',d.year+' 年')}${fact('体长',d.length)}${fact('体重',d.weight||'数据不详')}${fact('发现地',d.place)}</div>
    <p class="pdesc">${d.desc}</p><div class="fun pfun">✦ ${d.facts[0]}</div>
    <div class="pfoot"><a class="go" href="#/dino/${d.id}">查看完整档案${d.model?' · 3D 模型':''} →</a>
-   <div class="pcredit">主图：AI 复原图（仅供参考）${info?` · 小图：${info.artist||'见来源'} · ${info.license} · Wikimedia Commons`:''}</div></div></div>`;
+   <div class="pcredit">${AI.has(d.id)?'主图：AI 复原图（仅供参考）':'AI 复原图制作中'}${info?` · ${AI.has(d.id)?'小图':'图片'}：${info.artist||'见来源'} · ${info.license} · Wikimedia Commons`:''}</div></div></div>`;
   $('#preview').classList.add('open'); globe.obs=null; $('#pv-x').onclick=closePreview;
   document.querySelectorAll('.dr-item').forEach(x=>x.classList.toggle('on',x.dataset.id===id));
   globe.sel=id; const m = globe.markers.find(m=>m.userData.d.id===id); if (m){ globe.focus = m.userData.n.clone(); globe.ctl.autoRotate=false; }
@@ -220,20 +229,20 @@ window.openPreview = openPreview;
 /* ---------- browse ---------- */
 function opts(sel, label, arr){ $(sel).innerHTML = `<option value="">${label}</option>`+arr.map(([v,t])=>`<option value="${v}">${t}</option>`).join(''); }
 function card(d){ const im = aiUrl(d);
-  return `<a class="card" href="#/dino/${d.id}"><div class="ph" style="${im?`background-image:url('${im}')`:''}">${d.model?'<span class="badge">3D</span>':''}</div>
+  return `<a class="card" href="#/dino/${d.id}"><div class="ph" style="${im?`background-image:url('${im}')`:''}">${d.model?'<span class="badge">3D</span>':''}${!im?`<span class="ph-none">${d.zh}<br><small>复原图制作中</small></span>`:''}${d.group==='pterosauria'?'<span class="badge pt">翼龙 · 非恐龙</span>':''}</div>
   <div class="bd"><h3>${d.zh}</h3><i>${d.latin}</i><div class="meta">${P[d.period].zh} · ${GROUPS[d.group].zh} · ${d.diet} · ${d.region}</div></div></a>`; }
 function initBrowse(){
   opts('#f-period','全部时代',PERIODS.map(p=>[p.key,p.zh])); opts('#f-group','全部类群',Object.entries(GROUPS).map(([k,g])=>[k,g.zh]));
   opts('#f-diet','全部食性',DIETS.map(x=>[x,x])); opts('#f-region','全部地区',REGIONS.map(x=>[x,x]));
   const run = () => { const q=$('#q').value.trim().toLowerCase(), pe=$('#f-period').value, gr=$('#f-group').value, di=$('#f-diet').value, re=$('#f-region').value;
-    const list = DINOS.filter(d => (!q || (d.zh+d.latin+d.place+GROUPS[d.group].zh).toLowerCase().includes(q)) && (!pe||d.period===pe) && (!gr||d.group===gr) && (!di||d.diet===di) && (!re||d.region===re))
+    const list = DINOS.filter(d => matchQ(d,q) && (!pe||d.period===pe) && (!gr||d.group===gr) && (!di||d.diet===di) && (!re||d.region===re))
       .sort((a,b)=>PERIODS.findIndex(p=>p.key===a.period)-PERIODS.findIndex(p=>p.key===b.period));
     $('#count').textContent = `共 ${list.length} 种`; $('#grid').innerHTML = list.map(card).join(''); };
   ['#q','#f-period','#f-group','#f-diet','#f-region'].forEach(s=>$(s).addEventListener('input',run)); run();
   window.browseFilter = (k,v) => { $('#f-'+k).value=v; run(); };
 }
 function initGroups(){
-  const order = [['蜥臀目 Saurischia',['theropoda','sauropodomorpha']],['鸟臀目 Ornithischia',['ornithischia_basal','stegosauria','ankylosauria','ornithopoda','pachycephalosauria','ceratopsia']]];
+  const order = [['蜥臀目 Saurischia',['theropoda','sauropodomorpha']],['鸟臀目 Ornithischia',['ornithischia_basal','stegosauria','ankylosauria','ornithopoda','pachycephalosauria','ceratopsia']],['翼龙目 Pterosauria · 非恐龙，恐龙的近亲',['pterosauria']]];
   $('#groups').innerHTML = order.map(([t,ks])=>`<h3 style="color:var(--amber2);letter-spacing:.2em">${t}</h3>`+ks.map(k=>{ const g=GROUPS[k], l=DINOS.filter(d=>d.group===k);
     return `<div class="panel group-block"><h3>${g.zh}<small>${g.en}</small> <span class="count">· ${l.length} 种</span></h3><p>${g.note}</p>${l.map(d=>`<a class="chip" href="#/dino/${d.id}">${d.zh}</a>`).join(' ')}</div>`; }).join('')).join('');
 }
@@ -255,10 +264,10 @@ function showDetail(id){
   const idx = DINOS.indexOf(d), prev = DINOS[(idx-1+DINOS.length)%DINOS.length], next = DINOS[(idx+1)%DINOS.length];
   $('#detail').innerHTML = `<a class="back chip" href="#/browse">← 返回图鉴</a>
   <div class="detail"><div>
-    <figure class="hero-ai"><img src="${aiUrl(d)}" alt="${d.zh} AI 复原图"><figcaption><span class="ai-tag">AI 复原图</span> 由本站使用 AI 生成，仅供参考，未必完全符合科学事实</figcaption></figure>
+    ${AI.has(d.id)?`<figure class="hero-ai"><img src="${aiUrl(d)}" alt="${d.zh} AI 复原图"><figcaption><span class="ai-tag">AI 复原图</span> 由本站使用 AI 生成，仅供参考，未必完全符合科学事实</figcaption></figure>`:(im?'':`<figure class="hero-ai"><div class="pimg-ph" style="position:relative;height:260px">${d.zh}<br><small>复原图制作中</small></div></figure>`)}
     ${d.model?`<div class="viewer" id="viewer" style="margin-top:14px"><div class="vlabel">三维模型：${MODELS.find(m=>m.key===d.model).name}（${MODELS.find(m=>m.key===d.model).author}，${MODELS.find(m=>m.key===d.model).license}）· 拖动旋转，滚轮缩放 · 低多边形艺术造型，非科学复原</div></div>`:''}
     ${im?`<figure class="panel photo2"><img src="${imgUrl(d)}" alt="${d.zh} 化石或标本照片" loading="lazy"><figcaption>化石 / 标本照片：${im.artist||'见来源'} · <a href="${im.page}" target="_blank" rel="noopener">${im.license} · Wikimedia Commons</a></figcaption></figure>`:''}</div>
-  <div class="dt"><div class="eyebrow">${g.clade} · ${g.zh} ${g.en}</div><h1>${d.zh}</h1><div class="latin">${d.latin}</div>
+  <div class="dt">${ptTag(d)}<div class="eyebrow">${g.clade} · ${g.zh} ${g.en}</div><h1>${d.zh}</h1><div class="latin">${d.latin}</div>
     <div class="facts"><div><span>地质年代</span><b style="color:${per.color}">${per.zh}</b><br><small>${d.ma}</small></div><div><span>食性</span><b>${d.diet}</b></div>
     <div><span>体长</span><b>${d.length}</b></div><div><span>体重</span><b>${d.weight||'数据不详'}</b></div>
     <div><span>发现地</span><b>${d.place}</b></div><div><span>命名年份</span><b>${d.year} 年</b></div></div>
@@ -300,7 +309,7 @@ function route(){
 $('#stats').innerHTML = `<div><b>${DINOS.length}</b>收录物种</div><div><b>${DINOS.filter(d=>d.region==='中国').length}</b>中国发现</div><div><b>${DINOS.filter(d=>d.model).length}</b>三维模型</div><div><b>${PERIODS.length}</b>地质时段</div>`;
 initGlobe(); initDrawer(); initTimeline(); initBrowse(); initGroups(); initCredits();
 addEventListener('hashchange', route); route();
-window.__state = () => ({globeFrames:globe.frames||0, texReady:!!globe.texReady, viewer: viewer?{frames:viewer.frames||0, loaded:!!viewer.loaded}:null});
+window.__state = () => ({n:DINOS.length, globeFrames:globe.frames||0, texReady:!!globe.texReady, viewer: viewer?{frames:viewer.frames||0, loaded:!!viewer.loaded}:null});
 window.__markerScreen = id => { const m=globe.markers.find(m=>m.userData.d.id===id); const r=(globe.rects||[]).find(r=>r.id===id); if(!m||!r) return {vis:false}; return {x:r.x+r.w/2,y:r.y+r.h/2,vis:true}; };
 window.__layoutRects = () => globe.rects||[];
 window.__thumbs = () => globe.thumbsLoaded||0;
@@ -318,3 +327,13 @@ function placeTip(mx,my){ const tip=document.getElementById('globe-tip'); if(!ti
   const bad=([x,y])=>obs.reduce((a,r)=>a+Math.max(0,Math.min(x+w,r.right)-Math.max(x,r.left))*Math.max(0,Math.min(y+h,r.bottom)-Math.max(y,r.top)),0);
   let best=null,bs=1e18; for(const c of cands){ const q=clamp(c); const cover=(mx>=q[0]&&mx<=q[0]+w&&my>=q[1]&&my<=q[1]+h)?1e7:0; const sc=bad(q)+cover; if(sc<bs){bs=sc;best=q;} if(sc===0) break; }
   tip.style.left=best[0]+'px'; tip.style.top=best[1]+'px'; }
+
+// count-badge popover: list species with thumbnails
+function closeBadgePop(){ document.getElementById('badge-pop')?.remove(); }
+function openBadgePop(b,list){ closeBadgePop(); const r=b.getBoundingClientRect(); const pop=document.createElement('div'); pop.id='badge-pop'; pop.className='badge-pop';
+  pop.innerHTML=`<div class="bp-h">此处 ${list.length} 个物种 <button aria-label="关闭">×</button></div><div class="bp-l">${list.map(d=>`<div class="bp-i" data-id="${d.id}"><img src="${thumbUrl(d)}" alt="" loading="lazy"><div><b>${d.zh}</b><small>${d.latin}${d.group==='pterosauria'?' · 翼龙':''}</small></div></div>`).join('')}</div>`;
+  document.body.appendChild(pop); const w=pop.offsetWidth,h=pop.offsetHeight; let x=r.right+10, y=r.top+r.height/2-h/2; if(x+w>innerWidth-8) x=r.left-10-w; x=Math.max(8,Math.min(innerWidth-w-8,x)); y=Math.max(8,Math.min(innerHeight-h-8,y)); pop.style.left=x+'px'; pop.style.top=y+'px';
+  pop.onclick=e=>{ e.stopPropagation(); if(e.target.closest('button')) return closeBadgePop(); const it=e.target.closest('.bp-i'); if(it) flyTo(it.dataset.id); }; }
+addEventListener('pointerdown',e=>{ if(!e.target.closest('#badge-pop,.mk-badge')) closeBadgePop(); });
+window.__zh = id => (byId[id]||{}).zh;
+window.__aiCount = () => DINOS.filter(d=>AI.has(d.id)).length;

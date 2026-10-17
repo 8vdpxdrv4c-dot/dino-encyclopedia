@@ -662,5 +662,397 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "artist": "Jens Lallensack"
+ },
+ "pachyrhinosaurus": {
+  "file": "img/pachyrhinosaurus.webp",
+  "title": "Pachyrhinosaurus_Royal_Tyrrell_1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pachyrhinosaurus_Royal_Tyrrell_1.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Etemenanki3"
+ },
+ "chasmosaurus": {
+  "file": "img/chasmosaurus.webp",
+  "title": "ChasmosaurusROM.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:ChasmosaurusROM.JPG",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Eduard Solà"
+ },
+ "centrosaurus": {
+  "file": "img/centrosaurus.webp",
+  "title": "Centrosaurus_apertus_skull_and_jaws,_Dinosaur_Provincial_Park,_Alberta,_Canada,_Late_Cretaceous_-_Royal_Ontario_Museum_-_DSC00078.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Centrosaurus_apertus_skull_and_jaws,_Dinosaur_Provincial_Park,_Alberta,_Canada,_Late_Cretaceous_-_Royal_Ontario_Museum_-_DSC00078.JPG",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Daderot"
+ },
+ "kosmoceratops": {
+  "file": "img/kosmoceratops.webp",
+  "title": "コスモケラトプス・リカルゾニ頭骨.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:%E3%82%B3%E3%82%B9%E3%83%A2%E3%82%B1%E3%83%A9%E3%83%88%E3%83%97%E3%82%B9%E3%83%BB%E3%83%AA%E3%82%AB%E3%83%AB%E3%82%BE%E3%83%8B%E9%A0%AD%E9%AA%A8.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "ケラトプスユウタ"
+ },
+ "sauropelta": {
+  "file": "img/sauropelta.webp",
+  "title": "Sauropelta.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Sauropelta.jpg",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Ryan Somma"
+ },
+ "edmontonia": {
+  "file": "img/edmontonia.webp",
+  "title": "Edmontonia_half.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Edmontonia_half.jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Shriram Rajagopalan from Vancouver, Canada"
+ },
+ "camarasaurus": {
+  "file": "img/camarasaurus.webp",
+  "title": "Camarasaurus_lentus_Carnegie.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Camarasaurus_lentus_Carnegie.jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "James St. John"
+ },
+ "brontosaurus": {
+  "file": "img/brontosaurus.webp",
+  "title": "Brontosaurus_excelsus_remount_in_the_Peabody_Museum.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Brontosaurus_excelsus_remount_in_the_Peabody_Museum.jpg",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Matthew Bellemare"
+ },
+ "giraffatitan": {
+  "file": "img/giraffatitan.webp",
+  "title": "Museum_für_Naturkunde_(36556352434).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Museum_f%C3%BCr_Naturkunde_(36556352434).jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Shadowgate from Novara, ITALY"
+ },
+ "dreadnoughtus": {
+  "file": "img/dreadnoughtus.webp",
+  "title": "Dreadnoughtus_schrani_Multiview_Skeletal.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Dreadnoughtus_schrani_Multiview_Skeletal.png",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Gunnar Bivens"
+ },
+ "saltasaurus": {
+  "file": "img/saltasaurus.webp",
+  "title": "Saltasaurus_dinosaur.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Saltasaurus_dinosaur.png",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "artist": "LadyofHats Altered by Steveoc 86 and FunkMonk"
+ },
+ "sauroposeidon": {
+  "file": "img/sauroposeidon.webp",
+  "title": "Sauroposeidon_proteles_Skeletal.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Sauroposeidon_proteles_Skeletal.png",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Gunnar Bivens"
+ },
+ "acrocanthosaurus": {
+  "file": "img/acrocanthosaurus.webp",
+  "title": "Acrocanthosaurus_skeleton_(1).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Acrocanthosaurus_skeleton_(1).jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Famille Wielosz-Caron"
+ },
+ "concavenator": {
+  "file": "img/concavenator.webp",
+  "title": "Concavenator.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Concavenator.jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "UNED Universidad Nacional de Educación a Distancia"
+ },
+ "irritator": {
+  "file": "img/irritator.webp",
+  "title": "Irritator_challengeri_mount_01.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Irritator_challengeri_mount_01.jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Kabacchi"
+ },
+ "troodon": {
+  "file": "img/troodon.webp",
+  "title": "Troodon_MOR_full.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Troodon_MOR_full.png",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Montanoceratops"
+ },
+ "dromaeosaurus": {
+  "file": "img/dromaeosaurus.webp",
+  "title": "Dromaeosaurus_in_Canadian_Museum_of_Nature.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dromaeosaurus_in_Canadian_Museum_of_Nature.jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "shankar s."
+ },
+ "austroraptor": {
+  "file": "img/austroraptor.webp",
+  "title": "Austroraptor_maxilla_&_dentary.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Austroraptor_maxilla_%26_dentary.jpg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Federico L. Agnolin, Matias J. Motta, Federico Brissón Egli, Gastón Lo Coco &amp; Fernando E. Novas"
+ },
+ "halszkaraptor": {
+  "file": "img/halszkaraptor.webp",
+  "title": "Halszkaraptor_escuilliei_holotype.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Halszkaraptor_escuilliei_holotype.png",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Andrea Cau, Vincent Beyrand, Rinchen Barsbold, Khishigjav Tsogtbaatar &amp; Pascal Godefroit"
+ },
+ "mei": {
+  "file": "img/mei.webp",
+  "title": "Mei_long_holotype_(cropped).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Mei_long_holotype_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "纳瓦拉的亨利"
+ },
+ "epidexipteryx": {
+  "file": "img/epidexipteryx.webp",
+  "title": "Epidexipteryx_hui_Holotype_IVPP.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Epidexipteryx_hui_Holotype_IVPP.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Jonathan Chen"
+ },
+ "gigantoraptor": {
+  "file": "img/gigantoraptor.webp",
+  "title": "Gigantoraptor_-_Baoding.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Gigantoraptor_-_Baoding.jpg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Jonathan Chen"
+ },
+ "jinfengopteryx": {
+  "file": "img/jinfengopteryx.webp",
+  "title": "Jinfengopteryx_elegans_2.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Jinfengopteryx_elegans_2.JPG",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "Laikayiu"
+ },
+ "xiongguanlong": {
+  "file": "img/xiongguanlong.webp",
+  "title": "Xiongguanlong_-_Baoding.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Xiongguanlong_-_Baoding.jpg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Jonathan Chen"
+ },
+ "huaxiagnathus": {
+  "file": "img/huaxiagnathus.webp",
+  "title": "Huaxiagnathus_orientalis.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Huaxiagnathus_orientalis.JPG",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": ""
+ },
+ "saurolophus": {
+  "file": "img/saurolophus.webp",
+  "title": "Saurolophus_mount.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Saurolophus_mount.jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Yuya Tamai from Gifu, Japan"
+ },
+ "hypsilophodon": {
+  "file": "img/hypsilophodon.webp",
+  "title": "HypsilophodonBrussels.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:HypsilophodonBrussels.jpg",
+  "license": "Public domain",
+  "licenseUrl": "",
+  "artist": "MWAK"
+ },
+ "dryosaurus": {
+  "file": "img/dryosaurus.webp",
+  "title": "Dryosaurus_altus_Beneski.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dryosaurus_altus_Beneski.jpg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Jonathan Chen"
+ },
+ "lesothosaurus": {
+  "file": "img/lesothosaurus.webp",
+  "title": "Lesothosaurus_sp_skull_3894.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Lesothosaurus_sp_skull_3894.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Ghedo"
+ },
+ "rugops": {
+  "file": "img/rugops.webp",
+  "title": "Rugops_skull.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Rugops_skull.jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Ryan Somma from Occoquan, USA"
+ },
+ "mapusaurus": {
+  "file": "img/mapusaurus.webp",
+  "title": "Mapusaurus.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Mapusaurus.jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Kabacchi"
+ },
+ "australovenator": {
+  "file": "img/australovenator.webp",
+  "title": "Banjo_Australovenator.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Banjo_Australovenator.jpg",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Talisen"
+ },
+ "diamantinasaurus": {
+  "file": "img/diamantinasaurus.webp",
+  "title": "Diamantinasaurus_skeletals.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Diamantinasaurus_skeletals.png",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "artist": "Artwork: T. Tischler, Australian Age of Dinosaurs Museum of Natural History (edited by Jaybear)"
+ },
+ "thecodontosaurus": {
+  "file": "img/thecodontosaurus.webp",
+  "title": "Thecodontosaurus_antiquus_skeleton.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Thecodontosaurus_antiquus_skeleton.png",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Jaime A. Headden (User:Qilong)"
+ },
+ "pteranodon": {
+  "file": "img/pteranodon.webp",
+  "title": "Pteranodon_amnh_martyniuk.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pteranodon_amnh_martyniuk.jpg",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Matt Martyniuk"
+ },
+ "quetzalcoatlus": {
+  "file": "img/quetzalcoatlus.webp",
+  "title": "Quetzalcoatlus_northropi.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Quetzalcoatlus_northropi.jpg",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Ghedoghedo"
+ },
+ "rhamphorhynchus": {
+  "file": "img/rhamphorhynchus.webp",
+  "title": "Rhamphorhynchus_munsteri.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Rhamphorhynchus_munsteri.jpg",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "M0tty"
+ },
+ "pterodactylus": {
+  "file": "img/pterodactylus.webp",
+  "title": "Bsp_as_i_739_modified.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Bsp_as_i_739_modified.png",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Steven U. Vidovic, David M. Martill, Matthew Martyniuk,"
+ },
+ "dimorphodon": {
+  "file": "img/dimorphodon.webp",
+  "title": "Dimorphodon_Flight_Pose.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Dimorphodon_Flight_Pose.png",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "MCDinosaurhunter"
+ },
+ "tupandactylus": {
+  "file": "img/tupandactylus.webp",
+  "title": "Tupandactylus_skeleton_-_Museu_Nacional,_Rio_de_Janeiro.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Tupandactylus_skeleton_-_Museu_Nacional,_Rio_de_Janeiro.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Edwardliu2013"
+ },
+ "hatzegopteryx": {
+  "file": "img/hatzegopteryx.webp",
+  "title": "Hatzegopteryx_humerus.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Hatzegopteryx_humerus.jpg",
+  "license": "CC BY 2.5",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+  "artist": "Mark P. Witton1, Michael B. Habib"
+ },
+ "dsungaripterus": {
+  "file": "img/dsungaripterus.webp",
+  "title": "Dsungaripterus_weii_01.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dsungaripterus_weii_01.jpg",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "H. Zell"
+ },
+ "hamipterus": {
+  "file": "img/hamipterus.webp",
+  "title": "Hamipterus-Paleozoological_Museum_of_China.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Hamipterus-Paleozoological_Museum_of_China.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Jonathan Chen"
+ },
+ "zhejiangopterus": {
+  "file": "img/zhejiangopterus.webp",
+  "title": "Zhejiang_Geological_Museum_20240804_132220.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Zhejiang_Geological_Museum_20240804_132220.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Dlyj0604"
+ },
+ "darwinopterus": {
+  "file": "img/darwinopterus.webp",
+  "title": "Darwinopterus.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Darwinopterus.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Didier Descouens"
+ },
+ "nemicolopterus": {
+  "file": "img/nemicolopterus.webp",
+  "title": "Nemicolopterus_crypticus_holotype.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Nemicolopterus_crypticus_holotype.png",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Rodrigo V. Pêgas1, Xuanyu Zhou, Xingsheng Jin, Kai Wang, Waisum Ma"
+ },
+ "anhanguera": {
+  "file": "img/anhanguera.webp",
+  "title": "Anhanguera_blittersdorffi_holotype.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Anhanguera_blittersdorffi_holotype.jpg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "FELIPE L. PINHEIRO, ALEXANDER W.A. KELLNER, JOÃO L. DA SILVA, RUDAH R.C. DUQUE, JULIANA M. SAYÃO, ESAÚ V. DE ARAÚJO, FABIANA R. COSTA, RICHARD BUCHMANN, GABRIEL"
+ },
+ "pterodaustro": {
+  "file": "img/pterodaustro.webp",
+  "title": "Pterodaustro_guinazui.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pterodaustro_guinazui.jpg",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Gadfium"
+ },
+ "ikrandraco": {
+  "file": "img/ikrandraco.webp",
+  "title": "Ikrandraco-Paleozoological_Museum_of_China.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Ikrandraco-Paleozoological_Museum_of_China.jpg",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Morosaurus millenii"
  }
 }

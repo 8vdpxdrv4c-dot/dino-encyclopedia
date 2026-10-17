@@ -5,7 +5,7 @@ async function page(vp){const p=await b.newPage({viewport:vp}); p.on('console',m
  await p.goto(U+'#/'); await p.waitForFunction(()=>window.__state&&__state().texReady&&__state().globeFrames>20,null,{timeout:120000}); await p.waitForTimeout(1200); return p;}
 let p=await page({width:1440,height:900});
 console.log('scroll', await p.evaluate(()=>[document.documentElement.scrollHeight,innerHeight, document.querySelector('#globe canvas').clientWidth]));
-await p.waitForFunction(()=>window.__thumbs()>=85,null,{timeout:60000}); await p.evaluate(()=>{document.querySelector('#tl-all').click();}); await p.waitForTimeout(1500); await p.screenshot({path:'screens/home_imgmarkers.png'});
+await p.waitForFunction(()=>window.__thumbs()>=document.querySelectorAll('.mk img').length,null,{timeout:60000}); await p.evaluate(()=>{(e=>{if(!e.checked)e.click()})(document.querySelector('#tl-all'));}); await p.waitForTimeout(1500); await p.screenshot({path:'screens/home_imgmarkers.png'});
  await p.evaluate(()=>{window.__zoomTo(35,110,3.6)}); await p.waitForTimeout(4000); await p.screenshot({path:'screens/home_imgmarkers_zoom.png'});
 // click a visible marker via projection
 await p.evaluate(()=>window.setPeriod('LJ'));

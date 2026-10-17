@@ -508,5 +508,311 @@
 "w": 1024,
 "x0": 122,
 "x1": 852
+},
+"pachyrhinosaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 44,
+"x1": 898
+},
+"chasmosaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 52,
+"x1": 924
+},
+"centrosaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 210,
+"x1": 1004
+},
+"kosmoceratops": {
+"mode": "pad",
+"w": 1280,
+"x0": 118,
+"x1": 798
+},
+"sauropelta": {
+"mode": "pad",
+"w": 1280,
+"x0": 6,
+"x1": 926
+},
+"edmontonia": {
+"mode": "pad",
+"w": 1280,
+"x0": 184,
+"x1": 932
+},
+"camarasaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 42,
+"x1": 1002
+},
+"brontosaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 20,
+"x1": 1046
+},
+"giraffatitan": {
+"mode": "pad",
+"w": 1280,
+"x0": 60,
+"x1": 1036
+},
+"dreadnoughtus": {
+"mode": "pad",
+"w": 1280,
+"x0": 26,
+"x1": 938
+},
+"saltasaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 22,
+"x1": 1018
+},
+"sauroposeidon": {
+"mode": "pad",
+"w": 1280,
+"x0": 34,
+"x1": 812
+},
+"acrocanthosaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 100,
+"x1": 918
+},
+"concavenator": {
+"mode": "pad",
+"w": 1280,
+"x0": 70,
+"x1": 948
+},
+"irritator": {
+"mode": "pad",
+"w": 1280,
+"x0": 52,
+"x1": 938
+},
+"troodon": {
+"mode": "pad",
+"w": 1280,
+"x0": 212,
+"x1": 962
+},
+"dromaeosaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 106,
+"x1": 996
+},
+"austroraptor": {
+"mode": "pad",
+"w": 1280,
+"x0": 18,
+"x1": 980
+},
+"halszkaraptor": {
+"mode": "pad",
+"w": 1280,
+"x0": 68,
+"x1": 1020
+},
+"mei": {
+"mode": "pad",
+"w": 1280,
+"x0": 58,
+"x1": 948
+},
+"epidexipteryx": {
+"mode": "pad",
+"w": 1280,
+"x0": -26,
+"x1": 1036
+},
+"yi": {
+"mode": "pad",
+"w": 1280,
+"x0": 468,
+"x1": 980
+},
+"gigantoraptor": {
+"mode": "pad",
+"w": 1280,
+"x0": 164,
+"x1": 924
+},
+"jinfengopteryx": {
+"mode": "pad",
+"w": 1280,
+"x0": 82,
+"x1": 926
+},
+"xiongguanlong": {
+"mode": "pad",
+"w": 1280,
+"x0": 116,
+"x1": 916
+},
+"huaxiagnathus": {
+"mode": "pad",
+"w": 1280,
+"x0": 34,
+"x1": 1008
+},
+"saurolophus": {
+"mode": "pad",
+"w": 1280,
+"x0": 14,
+"x1": 928
+},
+"hypsilophodon": {
+"mode": "pad",
+"w": 1280,
+"x0": 34,
+"x1": 966
+},
+"dryosaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 56,
+"x1": 994
+},
+"lesothosaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 112,
+"x1": 1004
+},
+"rugops": {
+"mode": "pad",
+"w": 1280,
+"x0": 90,
+"x1": 932
+},
+"mapusaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 134,
+"x1": 892
+},
+"australovenator": {
+"mode": "pad",
+"w": 1280,
+"x0": 128,
+"x1": 944
+},
+"diamantinasaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 10,
+"x1": 1002
+},
+"thecodontosaurus": {
+"mode": "pad",
+"w": 1280,
+"x0": 60,
+"x1": 946
+},
+"pteranodon": {
+"mode": "pad",
+"w": 1280,
+"x0": -26,
+"x1": 962
+},
+"quetzalcoatlus": {
+"mode": "pad",
+"w": 1280,
+"x0": -30,
+"x1": 1050
+},
+"rhamphorhynchus": {
+"mode": "pad",
+"w": 1280,
+"x0": 18,
+"x1": 990
+},
+"pterodactylus": {
+"mode": "pad",
+"w": 1280,
+"x0": -2,
+"x1": 1008
+},
+"dimorphodon": {
+"mode": "pad",
+"w": 1280,
+"x0": 16,
+"x1": 1026
+},
+"tapejara": {
+"mode": "pad",
+"w": 1280,
+"x0": 10,
+"x1": 894
+},
+"tupandactylus": {
+"mode": "pad",
+"w": 1280,
+"x0": 8,
+"x1": 1000
+},
+"hatzegopteryx": {
+"mode": "pad",
+"w": 1280,
+"x0": -16,
+"x1": 864
+},
+"dsungaripterus": {
+"mode": "pad",
+"w": 1280,
+"x0": -2,
+"x1": 964
+},
+"hamipterus": {
+"mode": "pad",
+"w": 1280,
+"x0": -16,
+"x1": 950
+},
+"zhejiangopterus": {
+"mode": "pad",
+"w": 1280,
+"x0": 78,
+"x1": 894
+},
+"darwinopterus": {
+"mode": "pad",
+"w": 1280,
+"x0": 10,
+"x1": 1028
+},
+"nemicolopterus": {
+"mode": "pad",
+"w": 1280,
+"x0": 34,
+"x1": 1044
+},
+"anhanguera": {
+"mode": "pad",
+"w": 1280,
+"x0": -8,
+"x1": 986
+},
+"pterodaustro": {
+"mode": "pad",
+"w": 1280,
+"x0": -4,
+"x1": 1052
+},
+"ikrandraco": {
+"mode": "pad",
+"w": 1280,
+"x0": -6,
+"x1": 992
 }
 }
