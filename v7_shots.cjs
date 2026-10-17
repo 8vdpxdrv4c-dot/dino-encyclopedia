@@ -1,0 +1,13 @@
+const { chromium } = require('playwright');
+(async()=>{const b=await chromium.launch({args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--ignore-gpu-blocklist']});
+const p=await b.newPage({viewport:{width:1440,height:900}}); const errs=[];p.on('pageerror',e=>errs.push(e.message));p.on('console',m=>m.type()==='error'&&errs.push(m.text()));p.on('requestfailed',r=>errs.push('REQFAIL '+r.url()));
+const U=process.argv[2]||'http://localhost:4178/';
+await p.goto(U); await p.waitForFunction(()=>window.__state&&__state().texReady&&__state().globeFrames>20&&__thumbs()>=85,null,{timeout:120000});
+await p.evaluate(()=>__zoomTo(36,112,5.2)); await p.waitForTimeout(2000); await p.screenshot({path:'screens/v7_home.png'});
+await p.evaluate(()=>openPreview('yutyrannus')); await p.waitForTimeout(2500);
+console.log('panel', JSON.stringify(await p.evaluate(()=>{const pv=document.querySelector('#preview');return {sh:pv.scrollHeight,ch:pv.clientHeight,bg:getComputedStyle(pv.querySelector('.pimg')).backgroundImage.slice(-40)}})));
+await p.screenshot({path:'screens/v7_panel.png'});
+await p.goto(U+'#/dino/tyrannosaurus'); await p.waitForFunction(()=>__state().viewer&&__state().viewer.loaded&&__state().viewer.frames>10,null,{timeout:120000});
+await p.waitForFunction(()=>[...document.images].every(i=>i.complete)); await p.waitForTimeout(800); await p.screenshot({path:'screens/v7_detail.png',fullPage:true});
+const ai=await p.evaluate(async()=>{const r=await fetch('ai/tyrannosaurus.webp');return r.status+' '+(await r.arrayBuffer()).byteLength});
+console.log('ai fetch',ai,'ERRORS',errs.length,errs.join('|')); await b.close();})();

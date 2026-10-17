@@ -3,3 +3,4 @@ dist/
 screens/
 .netlify/
 *.log
+gen/raw/

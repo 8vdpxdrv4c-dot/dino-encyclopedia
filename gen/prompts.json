@@ -1,0 +1,682 @@
+[
+ {
+  "id": "lufengosaurus",
+  "zh": "禄丰龙",
+  "latin": "Lufengosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Lufengosaurus (禄丰龙), a Sauropodomorpha dinosaur from the Early Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/lufengosaurus.png"
+ },
+ {
+  "id": "mamenchisaurus",
+  "zh": "马门溪龙",
+  "latin": "Mamenchisaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Mamenchisaurus (马门溪龙), a Sauropodomorpha dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/mamenchisaurus.png"
+ },
+ {
+  "id": "yangchuanosaurus",
+  "zh": "永川龙",
+  "latin": "Yangchuanosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Yangchuanosaurus (永川龙), a Theropoda dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/yangchuanosaurus.png"
+ },
+ {
+  "id": "sinosauropteryx",
+  "zh": "中华龙鸟",
+  "latin": "Sinosauropteryx",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Sinosauropteryx (中华龙鸟), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/sinosauropteryx.png"
+ },
+ {
+  "id": "microraptor",
+  "zh": "小盗龙",
+  "latin": "Microraptor",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Microraptor (小盗龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/microraptor.png"
+ },
+ {
+  "id": "yutyrannus",
+  "zh": "羽暴龙",
+  "latin": "Yutyrannus",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Yutyrannus (羽暴龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/yutyrannus.png"
+ },
+ {
+  "id": "sinornithosaurus",
+  "zh": "中国鸟龙",
+  "latin": "Sinornithosaurus",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Sinornithosaurus (中国鸟龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/sinornithosaurus.png"
+ },
+ {
+  "id": "caudipteryx",
+  "zh": "尾羽龙",
+  "latin": "Caudipteryx",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Caudipteryx (尾羽龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/caudipteryx.png"
+ },
+ {
+  "id": "beipiaosaurus",
+  "zh": "北票龙",
+  "latin": "Beipiaosaurus",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Beipiaosaurus (北票龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/beipiaosaurus.png"
+ },
+ {
+  "id": "dilong",
+  "zh": "帝龙",
+  "latin": "Dilong",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Dilong (帝龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/dilong.png"
+ },
+ {
+  "id": "anchiornis",
+  "zh": "近鸟龙",
+  "latin": "Anchiornis",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Anchiornis (近鸟龙), a Theropoda dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/anchiornis.png"
+ },
+ {
+  "id": "guanlong",
+  "zh": "冠龙",
+  "latin": "Guanlong",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Guanlong (冠龙), a Theropoda dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/guanlong.png"
+ },
+ {
+  "id": "limusaurus",
+  "zh": "泥潭龙",
+  "latin": "Limusaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Limusaurus (泥潭龙), a Theropoda dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/limusaurus.png"
+ },
+ {
+  "id": "yinlong",
+  "zh": "隐龙",
+  "latin": "Yinlong",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Yinlong (隐龙), a Ceratopsia dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/yinlong.png"
+ },
+ {
+  "id": "sinraptor",
+  "zh": "中华盗龙",
+  "latin": "Sinraptor",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Sinraptor (中华盗龙), a Theropoda dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/sinraptor.png"
+ },
+ {
+  "id": "tuojiangosaurus",
+  "zh": "沱江龙",
+  "latin": "Tuojiangosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Tuojiangosaurus (沱江龙), a Stegosauria dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/tuojiangosaurus.png"
+ },
+ {
+  "id": "huayangosaurus",
+  "zh": "华阳龙",
+  "latin": "Huayangosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Huayangosaurus (华阳龙), a Stegosauria dinosaur from the Middle Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/huayangosaurus.png"
+ },
+ {
+  "id": "shunosaurus",
+  "zh": "蜀龙",
+  "latin": "Shunosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Shunosaurus (蜀龙), a Sauropodomorpha dinosaur from the Middle Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/shunosaurus.png"
+ },
+ {
+  "id": "gasosaurus",
+  "zh": "气龙",
+  "latin": "Gasosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Gasosaurus (气龙), a Theropoda dinosaur from the Middle Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/gasosaurus.png"
+ },
+ {
+  "id": "omeisaurus",
+  "zh": "峨眉龙",
+  "latin": "Omeisaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Omeisaurus (峨眉龙), a Sauropodomorpha dinosaur from the Middle Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/omeisaurus.png"
+ },
+ {
+  "id": "sinosaurus",
+  "zh": "中国龙",
+  "latin": "Sinosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Sinosaurus (中国龙), a Theropoda dinosaur from the Early Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/sinosaurus.png"
+ },
+ {
+  "id": "psittacosaurus",
+  "zh": "鹦鹉嘴龙",
+  "latin": "Psittacosaurus",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Psittacosaurus (鹦鹉嘴龙), a Ceratopsia dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/psittacosaurus.png"
+ },
+ {
+  "id": "zhuchengtyrannus",
+  "zh": "诸城暴龙",
+  "latin": "Zhuchengtyrannus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Zhuchengtyrannus (诸城暴龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/zhuchengtyrannus.png"
+ },
+ {
+  "id": "shantungosaurus",
+  "zh": "山东龙",
+  "latin": "Shantungosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Shantungosaurus (山东龙), a Ornithopoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/shantungosaurus.png"
+ },
+ {
+  "id": "tsintaosaurus",
+  "zh": "青岛龙",
+  "latin": "Tsintaosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Tsintaosaurus (青岛龙), a Ornithopoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/tsintaosaurus.png"
+ },
+ {
+  "id": "sinoceratops",
+  "zh": "中国角龙",
+  "latin": "Sinoceratops",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Sinoceratops (中国角龙), a Ceratopsia dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/sinoceratops.png"
+ },
+ {
+  "id": "qianzhousaurus",
+  "zh": "虔州龙",
+  "latin": "Qianzhousaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Qianzhousaurus (虔州龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/qianzhousaurus.png"
+ },
+ {
+  "id": "pinacosaurus",
+  "zh": "绘龙",
+  "latin": "Pinacosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Pinacosaurus (绘龙), a Ankylosauria dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/pinacosaurus.png"
+ },
+ {
+  "id": "velociraptor",
+  "zh": "伶盗龙",
+  "latin": "Velociraptor",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Velociraptor (伶盗龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/velociraptor.png"
+ },
+ {
+  "id": "protoceratops",
+  "zh": "原角龙",
+  "latin": "Protoceratops",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Protoceratops (原角龙), a Ceratopsia dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/protoceratops.png"
+ },
+ {
+  "id": "oviraptor",
+  "zh": "窃蛋龙",
+  "latin": "Oviraptor",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Oviraptor (窃蛋龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/oviraptor.png"
+ },
+ {
+  "id": "gallimimus",
+  "zh": "似鸡龙",
+  "latin": "Gallimimus",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Gallimimus (似鸡龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/gallimimus.png"
+ },
+ {
+  "id": "therizinosaurus",
+  "zh": "镰刀龙",
+  "latin": "Therizinosaurus",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Therizinosaurus (镰刀龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/therizinosaurus.png"
+ },
+ {
+  "id": "tarbosaurus",
+  "zh": "特暴龙",
+  "latin": "Tarbosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Tarbosaurus (特暴龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/tarbosaurus.png"
+ },
+ {
+  "id": "deinocheirus",
+  "zh": "恐手龙",
+  "latin": "Deinocheirus",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Deinocheirus (恐手龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/deinocheirus.png"
+ },
+ {
+  "id": "tyrannosaurus",
+  "zh": "霸王龙",
+  "latin": "Tyrannosaurus rex",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Tyrannosaurus rex (霸王龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/tyrannosaurus.png"
+ },
+ {
+  "id": "triceratops",
+  "zh": "三角龙",
+  "latin": "Triceratops",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Triceratops (三角龙), a Ceratopsia dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/triceratops.png"
+ },
+ {
+  "id": "ankylosaurus",
+  "zh": "甲龙",
+  "latin": "Ankylosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Ankylosaurus (甲龙), a Ankylosauria dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/ankylosaurus.png"
+ },
+ {
+  "id": "pachycephalosaurus",
+  "zh": "肿头龙",
+  "latin": "Pachycephalosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Pachycephalosaurus (肿头龙), a Pachycephalosauria dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/pachycephalosaurus.png"
+ },
+ {
+  "id": "edmontosaurus",
+  "zh": "埃德蒙顿龙",
+  "latin": "Edmontosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Edmontosaurus (埃德蒙顿龙), a Ornithopoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/edmontosaurus.png"
+ },
+ {
+  "id": "maiasaura",
+  "zh": "慈母龙",
+  "latin": "Maiasaura",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Maiasaura (慈母龙), a Ornithopoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/maiasaura.png"
+ },
+ {
+  "id": "corythosaurus",
+  "zh": "盔龙",
+  "latin": "Corythosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Corythosaurus (盔龙), a Ornithopoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/corythosaurus.png"
+ },
+ {
+  "id": "lambeosaurus",
+  "zh": "赖氏龙",
+  "latin": "Lambeosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Lambeosaurus (赖氏龙), a Ornithopoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/lambeosaurus.png"
+ },
+ {
+  "id": "parasaurolophus",
+  "zh": "副栉龙",
+  "latin": "Parasaurolophus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Parasaurolophus (副栉龙), a Ornithopoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/parasaurolophus.png"
+ },
+ {
+  "id": "styracosaurus",
+  "zh": "戟龙",
+  "latin": "Styracosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Styracosaurus (戟龙), a Ceratopsia dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/styracosaurus.png"
+ },
+ {
+  "id": "euoplocephalus",
+  "zh": "包头龙",
+  "latin": "Euoplocephalus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Euoplocephalus (包头龙), a Ankylosauria dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/euoplocephalus.png"
+ },
+ {
+  "id": "stegoceras",
+  "zh": "剑角龙",
+  "latin": "Stegoceras",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Stegoceras (剑角龙), a Pachycephalosauria dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/stegoceras.png"
+ },
+ {
+  "id": "albertosaurus",
+  "zh": "艾伯塔龙",
+  "latin": "Albertosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Albertosaurus (艾伯塔龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/albertosaurus.png"
+ },
+ {
+  "id": "deinonychus",
+  "zh": "恐爪龙",
+  "latin": "Deinonychus",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Deinonychus (恐爪龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/deinonychus.png"
+ },
+ {
+  "id": "utahraptor",
+  "zh": "犹他盗龙",
+  "latin": "Utahraptor",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Utahraptor (犹他盗龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/utahraptor.png"
+ },
+ {
+  "id": "allosaurus",
+  "zh": "异特龙",
+  "latin": "Allosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Allosaurus (异特龙), a Theropoda dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/allosaurus.png"
+ },
+ {
+  "id": "ceratosaurus",
+  "zh": "角鼻龙",
+  "latin": "Ceratosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Ceratosaurus (角鼻龙), a Theropoda dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/ceratosaurus.png"
+ },
+ {
+  "id": "stegosaurus",
+  "zh": "剑龙",
+  "latin": "Stegosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Stegosaurus (剑龙), a Stegosauria dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/stegosaurus.png"
+ },
+ {
+  "id": "apatosaurus",
+  "zh": "迷惑龙",
+  "latin": "Apatosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Apatosaurus (迷惑龙), a Sauropodomorpha dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/apatosaurus.png"
+ },
+ {
+  "id": "brachiosaurus",
+  "zh": "腕龙",
+  "latin": "Brachiosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Brachiosaurus (腕龙), a Sauropodomorpha dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/brachiosaurus.png"
+ },
+ {
+  "id": "diplodocus",
+  "zh": "梁龙",
+  "latin": "Diplodocus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Diplodocus (梁龙), a Sauropodomorpha dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/diplodocus.png"
+ },
+ {
+  "id": "coelophysis",
+  "zh": "腔骨龙",
+  "latin": "Coelophysis",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Coelophysis (腔骨龙), a Theropoda dinosaur from the Late Triassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/coelophysis.png"
+ },
+ {
+  "id": "dilophosaurus",
+  "zh": "双脊龙",
+  "latin": "Dilophosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Dilophosaurus (双脊龙), a Theropoda dinosaur from the Early Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/dilophosaurus.png"
+ },
+ {
+  "id": "herrerasaurus",
+  "zh": "艾雷拉龙",
+  "latin": "Herrerasaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Herrerasaurus (艾雷拉龙), a Theropoda dinosaur from the Late Triassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/herrerasaurus.png"
+ },
+ {
+  "id": "eoraptor",
+  "zh": "始盗龙",
+  "latin": "Eoraptor",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Eoraptor (始盗龙), a Sauropodomorpha dinosaur from the Late Triassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/eoraptor.png"
+ },
+ {
+  "id": "mussaurus",
+  "zh": "鼠龙",
+  "latin": "Mussaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Mussaurus (鼠龙), a Sauropodomorpha dinosaur from the Late Triassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/mussaurus.png"
+ },
+ {
+  "id": "giganotosaurus",
+  "zh": "南方巨兽龙",
+  "latin": "Giganotosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Giganotosaurus (南方巨兽龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/giganotosaurus.png"
+ },
+ {
+  "id": "carnotaurus",
+  "zh": "食肉牛龙",
+  "latin": "Carnotaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Carnotaurus (食肉牛龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/carnotaurus.png"
+ },
+ {
+  "id": "argentinosaurus",
+  "zh": "阿根廷龙",
+  "latin": "Argentinosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Argentinosaurus (阿根廷龙), a Sauropodomorpha dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/argentinosaurus.png"
+ },
+ {
+  "id": "amargasaurus",
+  "zh": "阿马加龙",
+  "latin": "Amargasaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Amargasaurus (阿马加龙), a Sauropodomorpha dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/amargasaurus.png"
+ },
+ {
+  "id": "patagotitan",
+  "zh": "巴塔哥巨龙",
+  "latin": "Patagotitan",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Patagotitan (巴塔哥巨龙), a Sauropodomorpha dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/patagotitan.png"
+ },
+ {
+  "id": "plateosaurus",
+  "zh": "板龙",
+  "latin": "Plateosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Plateosaurus (板龙), a Sauropodomorpha dinosaur from the Late Triassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/plateosaurus.png"
+ },
+ {
+  "id": "megalosaurus",
+  "zh": "巨齿龙",
+  "latin": "Megalosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Megalosaurus (巨齿龙), a Theropoda dinosaur from the Middle Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/megalosaurus.png"
+ },
+ {
+  "id": "iguanodon",
+  "zh": "禽龙",
+  "latin": "Iguanodon",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Iguanodon (禽龙), a Ornithopoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/iguanodon.png"
+ },
+ {
+  "id": "baryonyx",
+  "zh": "重爪龙",
+  "latin": "Baryonyx",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Baryonyx (重爪龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/baryonyx.png"
+ },
+ {
+  "id": "compsognathus",
+  "zh": "美颌龙",
+  "latin": "Compsognathus",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Compsognathus (美颌龙), a Theropoda dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/compsognathus.png"
+ },
+ {
+  "id": "archaeopteryx",
+  "zh": "始祖鸟",
+  "latin": "Archaeopteryx",
+  "feathered": true,
+  "prompt": "Photorealistic paleoart reconstruction of Archaeopteryx (始祖鸟), a Theropoda dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; covered in scientifically accurate feathers/filamentous plumage, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/archaeopteryx.png"
+ },
+ {
+  "id": "scelidosaurus",
+  "zh": "肢龙",
+  "latin": "Scelidosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Scelidosaurus (肢龙), a Basal Ornithischia / Thyreophora dinosaur from the Early Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/scelidosaurus.png"
+ },
+ {
+  "id": "spinosaurus",
+  "zh": "棘龙",
+  "latin": "Spinosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Spinosaurus (棘龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/spinosaurus.png"
+ },
+ {
+  "id": "suchomimus",
+  "zh": "似鳄龙",
+  "latin": "Suchomimus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Suchomimus (似鳄龙), a Theropoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/suchomimus.png"
+ },
+ {
+  "id": "ouranosaurus",
+  "zh": "豪勇龙",
+  "latin": "Ouranosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Ouranosaurus (豪勇龙), a Ornithopoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/ouranosaurus.png"
+ },
+ {
+  "id": "nigersaurus",
+  "zh": "尼日尔龙",
+  "latin": "Nigersaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Nigersaurus (尼日尔龙), a Sauropodomorpha dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/nigersaurus.png"
+ },
+ {
+  "id": "kentrosaurus",
+  "zh": "钉状龙",
+  "latin": "Kentrosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Kentrosaurus (钉状龙), a Stegosauria dinosaur from the Late Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/kentrosaurus.png"
+ },
+ {
+  "id": "majungasaurus",
+  "zh": "玛君龙",
+  "latin": "Majungasaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Majungasaurus (玛君龙), a Theropoda dinosaur from the Late Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/majungasaurus.png"
+ },
+ {
+  "id": "heterodontosaurus",
+  "zh": "畸齿龙",
+  "latin": "Heterodontosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Heterodontosaurus (畸齿龙), a Basal Ornithischia / Thyreophora dinosaur from the Early Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/heterodontosaurus.png"
+ },
+ {
+  "id": "massospondylus",
+  "zh": "大椎龙",
+  "latin": "Massospondylus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Massospondylus (大椎龙), a Sauropodomorpha dinosaur from the Early Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/massospondylus.png"
+ },
+ {
+  "id": "muttaburrasaurus",
+  "zh": "木他龙",
+  "latin": "Muttaburrasaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Muttaburrasaurus (木他龙), a Ornithopoda dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/muttaburrasaurus.png"
+ },
+ {
+  "id": "minmi",
+  "zh": "敏迷龙",
+  "latin": "Minmi",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Minmi (敏迷龙), a Ankylosauria dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/minmi.png"
+ },
+ {
+  "id": "leaellynasaura",
+  "zh": "雷利诺龙",
+  "latin": "Leaellynasaura",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Leaellynasaura (雷利诺龙), a Basal Ornithischia / Thyreophora dinosaur from the Early Cretaceous; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/leaellynasaura.png"
+ },
+ {
+  "id": "cryolophosaurus",
+  "zh": "冰脊龙",
+  "latin": "Cryolophosaurus",
+  "feathered": false,
+  "prompt": "Photorealistic paleoart reconstruction of Cryolophosaurus (冰脊龙), a Theropoda dinosaur from the Early Jurassic; full body visible head to tail tip, side / three-quarter view, standing on forest floor; scaly skin with natural muted coloration, anatomically correct (exactly four limbs, correct number of digits), scientifically plausible proportions; dark misty prehistoric forest background with strong shallow depth of field and soft bokeh, deep green and black tones, subtle warm amber rim light, moody cinematic color grade, high detail, no text, no watermark, no humans. Aspect 4:3.",
+  "file": "gen/raw/cryolophosaurus.png"
+ }
+]

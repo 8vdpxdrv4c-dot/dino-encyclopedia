@@ -4,6 +4,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { PERIODS, GROUPS, REGIONS, DIETS, DINOS } from './data.js';
 import IMAGES from './images.json';
+import AI_LIST from './ai.json';
+const AI = new Set(AI_LIST);
 import { MODELS, TEXTURES } from './credits.js';
 
 const $ = s => document.querySelector(s);
@@ -11,6 +13,8 @@ const BASE = import.meta.env.BASE_URL;
 const P = Object.fromEntries(PERIODS.map(p => [p.key, p]));
 const byId = Object.fromEntries(DINOS.map(d => [d.id, d]));
 const imgUrl = d => IMAGES[d.id] ? BASE + IMAGES[d.id].file : null;
+const aiUrl = d => AI.has(d.id) ? BASE+'ai/'+d.id+'.webp' : imgUrl(d);
+const thumbUrl = d => BASE+'thumb/'+d.id+'.webp';
 
 /* ---------- fireflies ---------- */
 (function fireflies(){
@@ -63,7 +67,7 @@ function initGlobe(){
   const sorted = [...markers].sort((a,b)=>pOrder[a.userData.d.period]-pOrder[b.userData.d.period] || a.userData.d.latin.localeCompare(b.userData.d.latin));
   sorted.forEach((m,i)=>{ const d=m.userData.d; m.userData.ord=i;
     const c=document.createElement('div'); c.className='mk'; c.style.setProperty('--c',P[d.period].color); c.dataset.id=d.id;
-    c.innerHTML = IMAGES[d.id] ? `<img src="${BASE}thumb/${d.id}.webp" alt="${d.zh}" draggable="false">` : `<span class="ph">◈<b>${d.zh}</b></span>`;
+    c.innerHTML = (AI.has(d.id)||IMAGES[d.id]) ? `<img src="${BASE}thumb/${d.id}.webp" alt="${d.zh}" draggable="false">` : `<span class="ph">◈<b>${d.zh}</b></span>`;
     const img=c.querySelector('img'); if(img){ img.onload=()=>globe.thumbsLoaded=(globe.thumbsLoaded||0)+1; }
     c.onclick=()=>{ $('#globe-tip').style.display='none'; openPreview(d.id); };
     c.onmouseenter=e=>{ const tip=$('#globe-tip'); tip.style.display='block'; tip.innerHTML=`<b>${d.zh}</b> <i>${d.latin}</i><br><small>${P[d.period].zh} · ${d.place}</small>`; };
@@ -165,7 +169,7 @@ function currentList(){
 }
 function renderDrawer(list){
   $('#d-count').textContent = `${curPeriod==='ALL'?'全部时代':P[curPeriod].zh} · ${list.length} 种`;
-  $('#tl-list').innerHTML = list.map(d=>`<div class="dr-item" data-id="${d.id}">${imgUrl(d)?`<img loading="lazy" src="${imgUrl(d)}" alt="">`:'<span class="ni"></span>'}<div><b>${d.zh}</b><small>${d.latin} · ${GROUPS[d.group].zh}</small></div><span class="dot" style="color:${P[d.period].color};background:${P[d.period].color}"></span></div>`).join('') || '<span class="count">此条件下暂无收录</span>';
+  $('#tl-list').innerHTML = list.map(d=>`<div class="dr-item" data-id="${d.id}"><img loading="lazy" src="${thumbUrl(d)}" alt=""><div><b>${d.zh}</b><small>${d.latin} · ${GROUPS[d.group].zh}</small></div><span class="dot" style="color:${P[d.period].color};background:${P[d.period].color}"></span></div>`).join('') || '<span class="count">此条件下暂无收录</span>';
 }
 function initDrawer(){
   opts('#d-group','类群',Object.entries(GROUPS).map(([k,g])=>[k,g.zh])); opts('#d-diet','食性',DIETS.map(x=>[x,x])); opts('#d-region','地区',REGIONS.map(x=>[x,x]));
@@ -177,15 +181,15 @@ function initDrawer(){
   if (innerWidth<900) setDrawer(false);
 }
 function openPreview(id){
-  const d=byId[id]; if(!d) return; const per=P[d.period], im=imgUrl(d), info=IMAGES[d.id];
+  const d=byId[id]; if(!d) return; const per=P[d.period], im=aiUrl(d), info=IMAGES[d.id];
   const fact=(k,v,st='')=>`<div title="${v}"><span>${k}</span><b${st}>${v}</b></div>`;
   $('#preview').innerHTML = `<button class="x" id="pv-x" aria-label="关闭">×</button>
-   <div class="pimg" style="${im?`background-image:url('${im}')`:''}">${im?'':`<span class="pimg-ph">${d.zh}</span>`}</div>
+   <div class="pimg" style="background-image:url('${im}')"><span class="ai-tag">AI 复原图</span>${info?`<img class="pimg-photo" src="${imgUrl(d)}" alt="化石/标本照片" title="化石/标本照片：${info.artist||''} · ${info.license}">`:''}</div>
    <div class="pb"><div class="eyebrow">${GROUPS[d.group].clade} · ${GROUPS[d.group].zh}</div><div class="pt"><h2>${d.zh}</h2><span class="latin">${d.latin}</span></div>
    <div class="facts pf">${fact('年代',per.zh,` style="color:${per.color}"`)}${fact('食性',d.diet)}${fact('命名',d.year+' 年')}${fact('体长',d.length)}${fact('体重',d.weight||'数据不详')}${fact('发现地',d.place)}</div>
    <p class="pdesc">${d.desc}</p><div class="fun pfun">✦ ${d.facts[0]}</div>
    <div class="pfoot"><a class="go" href="#/dino/${d.id}">查看完整档案${d.model?' · 3D 模型':''} →</a>
-   ${info?`<div class="pcredit">图片：${info.artist||'见来源'} · ${info.license} · Wikimedia Commons</div>`:''}</div></div>`;
+   <div class="pcredit">主图：AI 复原图（仅供参考）${info?` · 小图：${info.artist||'见来源'} · ${info.license} · Wikimedia Commons`:''}</div></div></div>`;
   $('#preview').classList.add('open'); globe.obs=null; $('#pv-x').onclick=closePreview;
   document.querySelectorAll('.dr-item').forEach(x=>x.classList.toggle('on',x.dataset.id===id));
   globe.sel=id; const m = globe.markers.find(m=>m.userData.d.id===id); if (m){ globe.focus = m.userData.n.clone(); globe.ctl.autoRotate=false; }
@@ -196,7 +200,7 @@ window.openPreview = openPreview;
 
 /* ---------- browse ---------- */
 function opts(sel, label, arr){ $(sel).innerHTML = `<option value="">${label}</option>`+arr.map(([v,t])=>`<option value="${v}">${t}</option>`).join(''); }
-function card(d){ const im = imgUrl(d);
+function card(d){ const im = aiUrl(d);
   return `<a class="card" href="#/dino/${d.id}"><div class="ph" style="${im?`background-image:url('${im}')`:''}">${d.model?'<span class="badge">3D</span>':''}</div>
   <div class="bd"><h3>${d.zh}</h3><i>${d.latin}</i><div class="meta">${P[d.period].zh} · ${GROUPS[d.group].zh} · ${d.diet} · ${d.region}</div></div></a>`; }
 function initBrowse(){
@@ -218,6 +222,7 @@ function initCredits(){
   const imgs = DINOS.filter(d=>IMAGES[d.id]).map(d=>{ const i=IMAGES[d.id]; return `<tr><td>${d.zh}</td><td><a href="${i.page}" target="_blank" rel="noopener">${i.title}</a></td><td>${i.artist||'—'}</td><td>${i.licenseUrl?`<a href="${i.licenseUrl}" target="_blank" rel="noopener">${i.license}</a>`:i.license}</td></tr>`; }).join('');
   $('#credits').innerHTML = `<div class="panel group-block"><h3>三维模型</h3><table><tr><th>模型</th><th>作者</th><th>来源</th><th>许可</th></tr>${MODELS.map(m=>`<tr><td>${m.name}</td><td>${m.author}</td><td><a href="${m.url}" target="_blank" rel="noopener">${m.url}</a></td><td>${m.license}</td></tr>`).join('')}</table></div>
   <div class="panel group-block"><h3>纹理与字体</h3><table>${TEXTURES.map(t=>`<tr><td>${t.name}</td><td>${t.author}</td><td><a href="${t.url}" target="_blank" rel="noopener">${t.url}</a></td><td>${t.license}</td></tr>`).join('')}</table></div>
+  <div class="panel group-block"><h3>AI 复原图</h3><p>站内各恐龙的主图（标注“AI 复原图”）及地球上的缩略图由本站使用 AI 图像生成工具制作，依据公开的物种描述绘制，仅供参考与欣赏，可能与科学事实存在出入（如体色、羽毛分布、比例等），不代表学术复原结论。</p></div>
   <div class="panel group-block"><h3>图片（维基共享资源 Wikimedia Commons）</h3><p>以下图片均按原许可使用，未作内容修改（仅缩放）。点击文件名查看原始页面与完整署名。</p><table><tr><th>恐龙</th><th>文件</th><th>作者</th><th>许可</th></tr>${imgs}</table></div>
   <div class="panel group-block"><h3>数据说明</h3><p>物种数据（年代、体长、体重、产地、命名年份）整理自维基百科及其引用的学术文献，数值为常见估计，不同研究间可能存在差异；“命名年份”为该属正式命名的年份。地球上的大陆为现代位置示意，不代表中生代古地理。</p></div>`;
 }
@@ -230,9 +235,10 @@ function showDetail(id){
   const per = P[d.period], g = GROUPS[d.group], im = IMAGES[d.id];
   const idx = DINOS.indexOf(d), prev = DINOS[(idx-1+DINOS.length)%DINOS.length], next = DINOS[(idx+1)%DINOS.length];
   $('#detail').innerHTML = `<a class="back chip" href="#/browse">← 返回图鉴</a>
-  <div class="detail"><div><div class="viewer" id="viewer">${d.model?'':(im?`<img src="${imgUrl(d)}" alt="${d.zh}">`:'<p style="padding:30px;color:var(--muted)">暂无可用图片</p>')}
-    <div class="vlabel">${d.model?`三维模型：${MODELS.find(m=>m.key===d.model).name}（${MODELS.find(m=>m.key===d.model).author}，${MODELS.find(m=>m.key===d.model).license}）· 拖动旋转，滚轮缩放 · 低多边形艺术造型，非科学复原`:(im?`图片：${im.artist||'见来源'} · ${im.license} · Wikimedia Commons`:'')}</div></div>
-    ${d.model&&im?`<div class="panel" style="margin-top:14px;padding:10px"><img src="${imgUrl(d)}" alt="" style="width:100%;max-height:260px;object-fit:contain"><div class="count" style="font-size:12px">图片：${im.artist||'见来源'} · ${im.license}</div></div>`:''}</div>
+  <div class="detail"><div>
+    <figure class="hero-ai"><img src="${aiUrl(d)}" alt="${d.zh} AI 复原图"><figcaption><span class="ai-tag">AI 复原图</span> 由本站使用 AI 生成，仅供参考，未必完全符合科学事实</figcaption></figure>
+    ${d.model?`<div class="viewer" id="viewer" style="margin-top:14px"><div class="vlabel">三维模型：${MODELS.find(m=>m.key===d.model).name}（${MODELS.find(m=>m.key===d.model).author}，${MODELS.find(m=>m.key===d.model).license}）· 拖动旋转，滚轮缩放 · 低多边形艺术造型，非科学复原</div></div>`:''}
+    ${im?`<figure class="panel photo2"><img src="${imgUrl(d)}" alt="${d.zh} 化石或标本照片" loading="lazy"><figcaption>化石 / 标本照片：${im.artist||'见来源'} · <a href="${im.page}" target="_blank" rel="noopener">${im.license} · Wikimedia Commons</a></figcaption></figure>`:''}</div>
   <div class="dt"><div class="eyebrow">${g.clade} · ${g.zh} ${g.en}</div><h1>${d.zh}</h1><div class="latin">${d.latin}</div>
     <div class="facts"><div><span>地质年代</span><b style="color:${per.color}">${per.zh}</b><br><small>${d.ma}</small></div><div><span>食性</span><b>${d.diet}</b></div>
     <div><span>体长</span><b>${d.length}</b></div><div><span>体重</span><b>${d.weight||'数据不详'}</b></div>
