@@ -70,9 +70,10 @@ function initGlobe(){
     c.innerHTML = (AI.has(d.id)||IMAGES[d.id]) ? `<img src="${BASE}thumb/${d.id}.webp" alt="${d.zh}" draggable="false">` : `<span class="ph">◈<b>${d.zh}</b></span>`;
     const img=c.querySelector('img'); if(img){ img.onload=()=>globe.thumbsLoaded=(globe.thumbsLoaded||0)+1; }
     c.onclick=()=>{ $('#globe-tip').style.display='none'; openPreview(d.id); };
-    c.onmouseenter=e=>{ const tip=$('#globe-tip'); tip.style.display='block'; tip.innerHTML=`<b>${d.zh}</b> <i>${d.latin}</i><br><small>${P[d.period].zh} · ${d.place}</small>`; };
-    c.onmousemove=e=>{ const tip=$('#globe-tip'); tip.style.left=Math.min(e.clientX+14,innerWidth-230)+'px'; tip.style.top=(e.clientY-10)+'px'; };
-    c.onmouseleave=()=>$('#globe-tip').style.display='none';
+    c.onmouseenter=e=>{ const tip=$('#globe-tip'); if(tip.parentNode!==document.body||tip.nextSibling) document.body.appendChild(tip); c.classList.add('hov'); tip.style.display='block'; tip.innerHTML=`<b>${d.zh}</b> <i>${d.latin}</i><br><small>${P[d.period].zh} · ${d.place}</small>`; };
+    c.onmousemove=e=>placeTip(e.clientX,e.clientY);
+    c.addEventListener('mouseenter',e=>placeTip(e.clientX,e.clientY));
+    c.onmouseleave=()=>{ c.classList.remove('hov'); $('#globe-tip').style.display='none'; };
     layer.appendChild(c); m.userData.el=c; m.userData.cur=null;
     const ln=document.createElementNS('http://www.w3.org/2000/svg','line'); ln.setAttribute('stroke',P[d.period].color); svg.appendChild(ln); m.userData.ln=ln;
   });
@@ -81,7 +82,7 @@ function initGlobe(){
   const v3=new THREE.Vector3();
   function layout(){
     const W=el.clientWidth, H=el.clientHeight, dist=cam.position.length(), cd=cam.position.clone().normalize(), mob=W<700;
-    const s=Math.round(Math.max(mob?34:40, Math.min(mob?52:72, (mob?44:60)*Math.pow(5.6/dist,0.55)*(mob?1.6:1)))), g=6, cell=s+g, pad=4, MAXN=mob?10:20;
+    const s=Math.round(Math.max(mob?25:29, Math.min(mob?38:52, (mob?44:60)*Math.pow(5.6/dist,0.55)*(mob?1.6:1)*0.72))), g=5, cell=s+g, pad=4, MAXN=mob?10:20;
     const items=[];
     for (const m of sorted){ const f=m.userData.n.dot(cd); m.userData.f=f;
       if(!m.visible || f<0.15){ continue; }
@@ -91,7 +92,7 @@ function initGlobe(){
     const placed=[...globe.obs];
     const hit=(x,y,w,h)=>x<2||y<2||x+w>W-2||y+h>H-2||placed.some(o=>x<o.x0+o.w+pad && o.x0<x+w+pad && y<o.y0+o.h+pad && o.y0<y+h+pad);
     const under=it=>it.x<4||it.y<4||it.x>W-4||it.y>H-4||globe.obs.some(o=>it.x>o.x0&&it.x<o.x0+o.w&&it.y>o.y0&&it.y<o.y0+o.h); for(let i=items.length-1;i>=0;i--) if(under(items[i])) items.splice(i,1);
-    const gap=8, LMAX=Math.round(Math.max(40,Math.min(60,s*0.9)));
+    const gap=6, LMAX=Math.round(Math.max(40,Math.min(56,s*1.3)));
     // 1) very dense clusters (anchors nearly coincident, more than MAXN) -> count badge
     const par=items.map((_,i)=>i), find=i=>par[i]===i?i:(par[i]=find(par[i]));
     for(let i=0;i<items.length;i++) for(let j=i+1;j<items.length;j++){ const a=items[i],b=items[j]; if(Math.abs(a.x-b.x)<s*0.9&&Math.abs(a.y-b.y)<s*0.9) par[find(i)]=find(j); }
@@ -307,3 +308,13 @@ window.__zoomTo = (lat,lon,dist) => { globe.ctl.autoRotate=false; globe.focus=nu
 window.__snap = v => { globe.snap=v; };
 window.__layoutOnce = () => globe.layout();
 { const tl=document.querySelector('.timeline-card'); const upd=()=>{ const r=tl.getBoundingClientRect(); document.documentElement.style.setProperty('--tlh',(innerHeight-r.top+10)+'px'); globe.obs=null; }; new ResizeObserver(upd).observe(tl); addEventListener('resize',upd); upd(); }
+
+// hover tooltip: top-level fixed overlay, kept inside viewport and off side panels
+function placeTip(mx,my){ const tip=document.getElementById('globe-tip'); if(!tip||tip.style.display==='none') return;
+  const w=tip.offsetWidth, h=tip.offsetHeight, M=8;
+  const obs=['.topbar','#drawer:not(.closed)','#preview.open','.timeline-card','.hero-mini'].map(q=>document.querySelector(q)).filter(Boolean).map(e=>e.getBoundingClientRect()).filter(r=>r.width>0);
+  const cands=[[mx+16,my-h/2],[mx-16-w,my-h/2],[mx-w/2,my-18-h],[mx-w/2,my+20],[mx+16,my+16],[mx-16-w,my-16-h]];
+  const clamp=([x,y])=>[Math.max(M,Math.min(innerWidth-w-M,x)),Math.max(M,Math.min(innerHeight-h-M,y))];
+  const bad=([x,y])=>obs.reduce((a,r)=>a+Math.max(0,Math.min(x+w,r.right)-Math.max(x,r.left))*Math.max(0,Math.min(y+h,r.bottom)-Math.max(y,r.top)),0);
+  let best=null,bs=1e18; for(const c of cands){ const q=clamp(c); const cover=(mx>=q[0]&&mx<=q[0]+w&&my>=q[1]&&my<=q[1]+h)?1e7:0; const sc=bad(q)+cover; if(sc<bs){bs=sc;best=q;} if(sc===0) break; }
+  tip.style.left=best[0]+'px'; tip.style.top=best[1]+'px'; }
