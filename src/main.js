@@ -5,6 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { PERIODS, GROUPS, REGIONS, DIETS, DINOS } from './data.js';
 import IMAGES from './images.json';
 import AI_LIST from './ai.json';
+import { GEO } from './geo.js';
 const AI = new Set(AI_LIST);
 import { MODELS, TEXTURES } from './credits.js';
 
@@ -67,6 +68,31 @@ function initGlobe(){
     const m = new THREE.Mesh(new THREE.SphereGeometry(0.014,10,8), new THREE.MeshBasicMaterial({color:col}));
     m.position.copy(nrm.clone().multiplyScalar(2.004)); m.userData.d=d; m.userData.n=nrm; earth.add(m); markers.push(m);
   }
+  // modern-geography labels: own layer BELOW the marker layer, never interactive
+  const geoLayer=document.createElement('div'); geoLayer.id='geo-layer'; geoLayer.setAttribute('aria-hidden','true'); $('#globe-wrap').appendChild(geoLayer);
+  const geo=GEO.map(([k,t,lat,lon])=>{ const e=document.createElement('div'); e.className='geo geo-'+(k==='c'?'c':k==='o'?'o':'n'+k); e.textContent=t; geoLayer.appendChild(e);
+    return {k,t,e,n:ll(lat,lon,1).normalize(),p:ll(lat,lon,2.01),w:0,h:0,a:-1}; });
+  const geoPri={c:0,'1':1,'2':2,o:3}; const geoOrder=[...geo].sort((a,b)=>geoPri[a.k]-geoPri[b.k]);
+  const gv=new THREE.Vector3();
+  function geoLayout(){ const W=el.clientWidth,H=el.clientHeight,dist=cam.position.length(),cd=cam.position.clone().normalize(); const hz=2/dist; const placed=[]; const cards=globe.rects||[]; const mob=W<700;
+    const showN2 = dist < (mob?4.6:5.3), showN1 = dist < 9.5;
+    for(const g of geoOrder){ let a=0; const f=g.n.dot(cd);
+      if(g.k==='2'&&!showN2 || g.k==='1'&&!showN1){ a=0; }
+      else { a=Math.min(1,Math.max(0,(f-hz-0.04)/0.22)); }
+      let x=0,y=0;
+      if(a>0){ if(!g.w){ g.w=g.e.offsetWidth; g.h=g.e.offsetHeight; }
+        gv.copy(g.p).applyMatrix4(earth.matrixWorld).project(cam); x=(gv.x+1)/2*W-g.w/2; y=(1-gv.y)/2*H-g.h/2;
+        const pad=g.k==='c'?6:3; const obs=globe.obs||[];
+        const hitL=(x,y)=>x<0||y<0||x+g.w>W||y+g.h>H||placed.some(r=>x<r.x+r.w+pad&&r.x<x+g.w+pad&&y<r.y+r.h+pad&&r.y<y+g.h+pad)||obs.some(o=>x<o.x0+o.w&&o.x0<x+g.w&&y<o.y0+o.h&&o.y0<y+g.h);
+        const hitC=(x,y)=>cards.some(r=>x<r.x+r.w+2&&r.x<x+g.w+2&&y<r.y+r.h+2&&r.y<y+g.h+2);
+        let best=null, fb=null; const R=g.k==='o'?0:(g.k==='c'?70:56);
+        for(let rr=0;rr<=R&&!best;rr+=14){ const n=rr?12:1; for(let i=0;i<n;i++){ const t=i/n*6.283; const cx=x+Math.cos(t)*rr*1.4, cy=y+Math.sin(t)*rr*0.8; if(hitL(cx,cy)) continue; if(!fb) fb=[cx,cy]; if(!hitC(cx,cy)){ best=[cx,cy]; break; } } }
+        if(best){ [x,y]=best; } else if(fb){ [x,y]=fb; a*=0.4; } else a=0;
+        if(a>0) placed.push({x,y,w:g.w,h:g.h}); }
+      if(a>0) g.e.style.transform=`translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`;
+      const as=a.toFixed(2); if(as!==g.a){ g.e.style.opacity=as; g.e.style.visibility=+as>0?'visible':'hidden'; g.a=as; } }
+    globe.geoShown=geo.filter(g=>+g.a>0).map(g=>g.t); }
+  globe.geoLayout=geoLayout;
   const layer = document.createElement('div'); layer.id='mk-layer'; layer.innerHTML='<svg id="mk-lines"></svg>'; $('#globe-wrap').appendChild(layer);
   const svg = layer.querySelector('svg'); const pOrder = Object.fromEntries(PERIODS.map((p,i)=>[p.key,i]));
   const sorted = [...markers].sort((a,b)=>pOrder[a.userData.d.period]-pOrder[b.userData.d.period] || a.userData.d.latin.localeCompare(b.userData.d.latin));
@@ -157,7 +183,7 @@ function initGlobe(){
     const dt=Math.min(clock.getDelta(),0.1); globe.dt=dt;
     if (globe.focus){ const dist=cam.position.length(); cam.position.lerp(globe.focus.clone().multiplyScalar(dist),1-Math.exp(-dt*4)); cam.position.setLength(dist); if(cam.position.angleTo(globe.focus)<0.01) globe.focus=null; }
     if (globe.zoomTo){ const d=cam.position.length(); const nd=d+(globe.zoomTo-d)*(1-Math.exp(-dt*4)); cam.position.setLength(nd); if(Math.abs(nd-globe.zoomTo)<0.02) globe.zoomTo=null; }
-    ctl.update(); r.render(scene,cam); layout(); globe.frames=(globe.frames||0)+1; })();
+    ctl.update(); r.render(scene,cam); layout(); globe.geoLayout&&globe.geoLayout(); globe.frames=(globe.frames||0)+1; })();
 }
 function ll(lat, lon, rad){ const a=THREE.MathUtils.degToRad(lat), o=THREE.MathUtils.degToRad(lon);
   return new THREE.Vector3(Math.cos(a)*Math.cos(o)*rad, Math.sin(a)*rad, -Math.cos(a)*Math.sin(o)*rad); }
@@ -337,3 +363,7 @@ function openBadgePop(b,list){ closeBadgePop(); const r=b.getBoundingClientRect(
 addEventListener('pointerdown',e=>{ if(!e.target.closest('#badge-pop,.mk-badge')) closeBadgePop(); });
 window.__zh = id => (byId[id]||{}).zh;
 window.__aiCount = () => DINOS.filter(d=>AI.has(d.id)).length;
+
+window.__geo = () => ({shown:globe.geoShown||[], rects:[...document.querySelectorAll('#geo-layer .geo')].filter(e=>e.style.visibility==='visible').map(e=>{const r=e.getBoundingClientRect();return {t:e.textContent,c:e.className,x:r.left,y:r.top,w:r.width,h:r.height}})});
+window.__geoLayoutOnce = () => globe.geoLayout();
+addEventListener('keydown',e=>{ if(e.key==='Escape') closeBadgePop(); });

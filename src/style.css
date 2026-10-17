@@ -195,3 +195,13 @@ body.home-mode .topbar{position:fixed;left:0;right:0;background:linear-gradient(
 .timeline-card .tl-track{height:32px}
 #tl-ma{color:#fff;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.7)}
 @media(max-width:900px){ .tl-seg{font-size:9px;column-gap:2px;padding:0 1px} .timeline-card .tl-track{height:30px} }
+
+/* v13: modern geography labels — beneath markers, never interactive */
+#geo-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;user-select:none}
+#mk-layer{z-index:1}
+.geo{position:absolute;left:0;top:0;pointer-events:none;white-space:nowrap;color:#fff;visibility:hidden;will-change:transform,opacity;transition:opacity .25s;line-height:1.1}
+.geo-c{font-size:19px;font-weight:700;letter-spacing:.45em;padding-left:.45em;text-shadow:0 0 6px rgba(0,0,0,.95),0 1px 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.6)}
+.geo-n1,.geo-n2{font-size:12px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.82);text-shadow:0 0 4px rgba(0,0,0,.95),0 1px 2px rgba(0,0,0,.9)}
+.geo-n2{font-size:11px;color:rgba(255,255,255,.72)}
+.geo-o{font-size:14px;font-style:italic;letter-spacing:.6em;padding-left:.6em;color:rgba(190,225,255,.5);text-shadow:0 0 5px rgba(0,0,0,.9)}
+@media(max-width:700px){ .geo-c{font-size:14px;letter-spacing:.3em} .geo-n1,.geo-n2{font-size:10px} .geo-o{font-size:11px} }
